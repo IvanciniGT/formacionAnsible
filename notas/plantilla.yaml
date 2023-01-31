@@ -1,0 +1,217 @@
+# Comentarios.... aleyuya !!!
+# Dentro de un fichero yaml, podemos tener MONTONONES de documentos YAML
+# Para notificar el inicio de un documento usamos: 
+--- 
+# Salvo en el primero documento, donde es opcional.
+# Para notificar el final de un documento usamos: 
+...
+---
+# Esta sintaxis es opcional. Es básica al mandar documentos YAML en streaming
+---
+# En YAML un documento es UN nodo!
+# Hay 2 tipos de nodos: ESCALARES y DE COLECCION
+---
+# Escalares: 
+# Número
+3
+---
+-17.9
+---
+.Nan # .nan .Nan .NAN
+---
+-.inf # .inf  .INF .Inf
+---
+# Valores lógicos:
+true # True TRUE
+---
+false # FALSE False
+---
+# Todos estos valores se permitían en versión 1.1 de la spec. 
+# HA habido una gran cambio en YAML 1.2 (SCHEMA).
+# Lo han implemntado fatal!!!!! 
+# En versión 1.2, por defecto, estos valores no se tratan como valores lógicos egún el estándar.
+# Al no haber pasado por fase DEPRECATED !!!!! OBSOLETO !
+# (se usa para que la gente vaya cambiando su código pero que entre tanto las cosas sigan funcionando)
+# Para evitar que todos los documentos YAML que había por ahí dejasen de funcionar de un día para otro...
+# La gran mayoría de los parsers YAML (programas que leen sintaxis YAML) siguen admitiendo estos valores...
+# FUERA DEL ESTANDAR !!!
+# Si veis uno por ahñi : RAPIDO QUITARLO !!!!! En cualquier momento nos deja de funcionar !
+Yes
+yes
+YES
+y
+No
+no
+NO
+no
+On
+ON
+on
+Off
+OFF
+off
+---
+# Textos
+# Con MUCHA DIFERENCIA es lo MAS COMPLEJO que tiene YAML 
+Hola, 'yo "so\ty \un            
+
+#texto
+---
+"Hola, 'yo \"soy \\un \n\t#texto"
+---
+'Hola, ''yo "s\toy \un 
+
+#texto'
+---
+# Estas sintaxis las usamos básicamente para textos simplones
+# Para textos más complejos, YAML ofrece OTRAS 2 sintaxis ADICIONALES
+---
+# LITERAL
+# El texto se pasa tal cual, quitando de cada linea el sangrado de la primera linea que contenga texto
+# Por defecto se incluye un salto de linea al final.
+# Los del principio SIEMPRE SE ELIMINAN
+# El signo -, se come todos los saltos de linea finales
+# El signo +, respeta todos los saltos de linea finales
+# El número es el número de espacios en blanco que quiero comer de sangría.
+# Ya hemos dicho que por defecto, los de la primera linea de texto
+|+2
+
+    Yo soy un texto
+  que se va a interpretra literalmente
+  Respetando los saltos de linea
+  
+  Incluso varios
+  Y los caracteres raros, como #, " \ \t \\ \n ' 
+  
+  
+  
+  
+---
+# FOLDED
+# respeta literalmente todos los caracteres
+# SALVO EL SALTO DE LINEA, que se reemplaza por un ESPACIO EN BLANCO
+# Igual que la sintaxis LITERAL, admite el signo + y - y los número, con el mismo comportamiento
+>-
+    terraform apply
+                    --var "NUMERO_INSTANCIAS=3"
+                    --var-file 'entorno1.tfvars'
+---
+# Valor nulo
+~
+---
+# Fechas: Formato ISO ESTANDAR
+---
+# Nodos de tipo Colección
+---
+# Lista Ordenada
+# Esta estructura permite meter un conjunto de valores identificados por un su posición
+# Tenemos 2 sintaxis diferentes:
+---
+# En este caso, las sublistas, necesitan ir sangradas hacia la derecha...
+# Cuánto? LO QUE QUIERA ! A YAML LE DA IGUAL!!!.
+# Eso si, me pide que sea consistente en cada nodo/nivel
+- item 1
+- 2
+- True
+- - subitem 1
+  - subitem 2
+  - 3
+- 
+                                - subitem 1
+                                - subitem 2
+                                - 3
+---
+# La segunda sintaxis está inspirada en JSON
+[ item1, 2, true, [1,2] ]
+---
+- item 1
+- 2
+- True
+-   
+    - 1
+    - 2
+---
+# SIEMPRE QUE PODAMOS , PERO SIEMPRE SIEMPRE, usaremos la sintaxis para humanos NUNCA LA JSON
+# Por qué? Y no es una preferencia personal.
+# Donde va a acabar este fichero? EN UN SCM (tipo GIT)
+# Y los SCM identifican cambios a nivel de LINEA...
+# Cada cosa en una linea, que sea rápido identificar los cambios
+# Hay una excepción a esta regla: Cuando quiero definir una lista VACIA: 
+[]
+---
+# Diccionario DESORDENADO, Mapa, Tabla hash, array asociativo
+# Esta estructura permite meter un conjunto de valores identificados por una clave
+# Hay 2 sintaxis también.
+---
+clave1: valor1
+clave2: 2
+clave3: true
+clave4: 
+        - item1
+        - item2
+clave5:
+    subclave: 1
+    subclave: 2
+    # Este es el tipo de documento YAML más habitual
+---
+#OJO, el estandar YAML es muy ampli... en ANSIBLE y en la mayor parde de herramienats que hacen uso de YAML, se usa una parte muy pequeña del estandar.
+# En YAML las claves pueden ser de cualquier tipo. EN ESTE CASO NUMEROS 
+1: Hola
+2: Amigo
+---
+# De hecho se podría usar un mapa como clave
+? clave: valor
+# En los mapas se puede identificar la clave con el signo ? 
+# Esto es muy poco habitual
+? 
+- item1
+- item2
+: | 
+    Soy un texto
+---
+? hola: amigo
+: felipe
+# EN RESUMEN... SE PUEDEN HACER COSAS MUY LOCAS EN YAML !!!!!
+---
+# La otra sintaxis está inspirada en JSON:
+{ item1: true, item2: 17 }
+# CUAL QUEREMOS USAR SIEMPRE? Por razones ya expuestas
+# SALVO UNAGLORIOSA EXCEPCION: 
+# Un mapa vacio
+{}
+---
+clave1: valor1
+clave2: valor2
+---
+clave2: valor2
+clave1: valor1
+# Estos 2 diccionarios son IGUALES: OS HE DICHO COLECCION DESORDENADA !
+---
+# Lista desordenada
+---
+# Diccionario ORDENADO
+--- 
+# Anchors de YAML: SUPERCHULO !!!!
+usuario: 
+    nombre: Ivan
+    edad: 44
+usuario:
+    nombre: Ruth
+    edad: 39
+    casadocon: 
+        nombre: Ivan
+        edad: 44
+---
+usuario: &ivan
+    nombre: &nombreDeIvan Ivan
+    edad: &edadDeIvan 44
+usuario:
+    nombre: Ruth
+    edad: 39
+    casadocon: *ivan
+datosCompletos:
+    ivan:
+        <<: *ivan   # Añade los items de un anchor a un diccionario
+        estudios: Ingeniero de Minas
+        edad: 43
+# Los anchors aplican a nivel de documento. NUNCA DE FICHERO !

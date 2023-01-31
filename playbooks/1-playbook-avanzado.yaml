@@ -1,0 +1,121 @@
+# Aquí montamos un playbook... va a contener? Una lista de plays
+- # Nuestro primer play
+    hosts:  localhost   # En qué entornos queremos ejecutar el playbook....
+                        # No suele ser buena práctica poner esa inforamción AQUI !
+                        # Pero de eso ya hablaremos ....
+                        
+                        # localhost es una palabra especial en ANSIBLE.
+                        # El el único recurso donde ANSIBLE me permite trabajar sin necesidad de un fichero de inventario
+    # Orden en el que los entornos se deben de ir tomando 
+    # order
+    
+    gather_facts: false
+    
+    # Variables propias que vamos a usar en este Playbook.
+    # Resumiendo, una variable es un dato al que puedo acceder a través de un nombre!
+    # Dato que puede ir cambiando con el tiempo.
+    vars:
+        # La sintaxis que vamos a usar es sintaxis YAML. Definimos un mapa: Clave/valor
+        # Donde la clave es : EL NOMBRE LA VARIABLE
+        # Donde el valor es : EL DATO QUE LA VARIABLE TIENE ASIGNADO EN UN MOMENTO DADO
+        variable1: datos
+        variable2: 17
+        variable3: true
+        variable4:
+            - 8080
+            - 8443
+        variable5:
+            protocolo:  http
+            puerto:     80
+    # ....
+    
+    # Definimos tareas.
+    # Las tareas van definidas / Agrupadas en 4 bloques diferentes:
+    # pre_tasks:     Conceptualmente las tareas que debo tener ejecutadas para poder ejecutar las "tasks"
+    # tasks:         Conceptualmente las tareas propias que debe ejecutar mi play => OBJETIVO DEL PLAY
+    # post_tasks:    Conceptualmente las tareas que ejecutaría, una vez ejecutadas las "tasks" mi play
+    # handlers:      Tareas que podrían ejecutarse o no... Solo si son ACTIVADAS
+    #                Las tareas normales, pueden disparar la ejecución de un HANDLER. De 2 formas diferentes
+    
+    # Realmante, las tareas se ejecutan en ese orden.
+    # Primero las pre
+    # Luego las tasks
+    # Por último las posts
+    
+    #... pero si las pusiera dentro de tasks todas... también se irían ejecutando en orden
+    pre_tasks:
+        -   name: Mostrar un MENSAJE EN PRE
+            debug:
+                msg: Soy el mensaje de la PRIMERA PRE-tarea!
+            
+                
+    tasks:  # Tareas que queremos ejecutar .... 
+            # O MEJOR DICHO: ESTADOS QUE QUEREMOS ALCANZAR !
+            # Por defecto, Sin yo pedirlo, Ansible ejecuta una tarea siempre al principio de cualquier PLAY.
+            # Esa tarea puedo desactivarla... o modificar su ejecución
+            # Es la tarea GATHER_FACTS
+                  # En ansible podemos usar variables. 
+                  # Podemos definir nuestras propias variables, ya lo veremos....
+                  # Ansible también me "regala" algunas variables por defecto.
+                  # Entre ellas la variable ansible_facts
+            # Puedo desactivar este comportamiento con la opción gather_Facts = False
+            # Ansible, por defecto obtiene 2 tipos de facts de un entorno:
+            # - Facts genéricos... los que hemos visto en ese fichero facts.json
+            # - Custom facts...... Datos que yo puedo definir específicos mios, de cada entorno.
+            
+        -   name: Mostrar un mensaje por pantalla
+            # En este nivel vamos a tener a nuestra disposición tanto palabra propias de ansible,
+            # como palabra propias de los MODULOS que vamos a utilizar.
+            # Por ahora nos vamos a centrar en las palabras PROPIAS DE ANSIBLE <=   ESTAS SON LAS QUE NOS INTERESA 
+            #                                                                       APRENDER EN LA FORMACION
+            debug:
+                msg: Soy el mensaje de la primera tarea!
+            changed_when:   true    # Expresión lógica (true, false) en la sintaxis que nos ofrece ANSIBLE
+            failed_when:    false   # Expresión lógica (true, false) en la sintaxis que nos ofrece ANSIBLE
+            notify: HANDLER1    # Aquí puedo poner el nombre del handler que quiero que se ACTIVE
+                                # Eso no significa que el handler se ejecute en este momento.
+                                # Ansible solo apunta que HAY QUE EJECUTAR ESE HANDLER
+                                # Cuando? Cuando acaben todas las tareas de su nivel:
+                                #       Las del post, las del pre, las de tasks....
+                                
+                                # Algo más... que ya os contaré
+                                
+                                # Para que el handler fuese activado, esta tarea tendría que provocar un cambio en el sistema
+                                # Podemos controlar el estado resultante de una tarea desde la sintaxis de ansible
+        -   name: Llamas AQUI y AHORA A los handlers
+            meta: flush_handlers                        # Intentar no usarlo NUNCA !
+
+        -   
+            name: Mostrar un segundo mensaje por pantalla
+            debug:
+                msg: Soy el mensaje de la segunda tarea!
+            changed_when: true
+            notify: EVENTO1
+        
+        -   
+            debug:
+                msg: Soy el mensaje de la tercera tarea!
+            name: Mostrar un tercer mensaje por pantalla
+            
+        -   name: Mostrar los facts que ANSIBLE ha traido del entorno administrado
+            debug:
+                var: ansible_facts
+                
+    post_tasks:
+        -   name: Mostrar un MENSAJE EN POST
+            debug:
+                msg: Soy el mensaje de la PRIMERA POST-tarea!
+    
+    handlers:
+        -   name: HANDLER1
+            debug:
+                msg: Soy el mensaje del HANDLER1!
+            listen:
+                - EVENTO1
+                
+        -   name: HANDLER2
+            debug:
+                msg: Soy el mensaje del HANDLER2!
+            listen:
+                - EVENTO1
+            

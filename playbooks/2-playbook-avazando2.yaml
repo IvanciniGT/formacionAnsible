@@ -1,0 +1,60 @@
+# Variables
+# Controlar la salida de un modulo
+# Condicionales
+# Tareas de rescate
+
+-   hosts:              localhost
+    gather_facts:       false
+    vars:                               # Que aquí solo definiré unos pocos valores... CASI NINGUNO
+        servicio:
+            instalar:   true
+            nombre :    nginx
+            puertos:
+                      - 80
+                      - 443
+        usuario: lucas
+    tasks:
+        # Tarea que accede a una variable
+        -   name:       Mostrar el contenido de la variable
+            debug:
+                var:    servicio
+                #msg:    {{ servicio }}
+        
+        # Tarea que usará la información de la variable dentro de un conetxto
+        -   name:       Mostrar el contenido de la variable
+            debug:
+                msg:    El primer puerto del servicio {{ servicio.nombre|upper }} es 
+                        el {{ servicio.puertos[0] }}.
+
+        # Tarea demo... Y si quiero que el texto no se pase por jinja
+        -   name:       Tarea que muestra el template que se está utilizando en el paso anterior
+            debug:
+                msg:    !unsafe "El primer puerto del servicio {{ servicio.nombre|upper }} es 
+                        el {{ servicio.puertos[0] }}."
+
+        # Tarea que muestra el usuario por defecto
+        -   name:       Tarea que muestra el valorl de la variable usuario
+            debug:
+                msg:    >-
+                            El usuario por defecto para el que debemos realizar la instalación 
+                            del servicio es: {{ usuario }}
+        # Tarea que sobreescribe una variable
+        -   name:       Tarea que muestra el valor modificado de la variable usuario
+            debug:
+                msg:    >-
+                            El usuario real para el que debemos realizar la instalación 
+                            del servicio es: {{ usuario }}
+            vars:
+                usuario: Ivan # OJO, CUIDADO
+                                # Esto lo usamos con sumo cuidado. 
+                                # Aquí no metemos valores a huevo!
+                                # Esto se usa para componer (o sobreescribir) valores de variables
+                                # En base a expresiones
+                              # El valor que pongo aquñí sobreescribiendo esta variable, 
+                              # solo está disponible apra esta tarea
+        # Tarea que demuestra que el usuario solo se ha sibreescrito en la tarea anterior
+        -   name:       Tarea que muestra el valorl de la variable usuario
+            debug:
+                msg:    >-
+                            El usuario por defecto para el que debemos realizar la instalación 
+                            del servicio es: {{ usuario }}

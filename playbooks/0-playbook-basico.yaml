@@ -1,0 +1,46 @@
+# Aquí montamos un playbook... va a contener? Una lista de plays
+- # Nuestro primer play
+    hosts:  localhost   # En qué entornos queremos ejecutar el playbook....
+                        # No suele ser buena práctica poner esa inforamción AQUI !
+                        # Pero de eso ya hablaremos ....
+                        
+                        # localhost es una palabra especial en ANSIBLE.
+                        # El el único recurso donde ANSIBLE me permite trabajar sin necesidad de un fichero de inventario
+    gather_facts: false
+    # vars:
+    # ....
+    
+    tasks:  # Tareas que queremos ejecutar .... 
+            # O MEJOR DICHO: ESTADOS QUE QUEREMOS ALCANZAR !
+            # Por defecto, Sin yo pedirlo, Ansible ejecuta una tarea siempre al principio de cualquier PLAY.
+            # Esa tarea puedo desactivarla... o modificar su ejecución
+            # Es la tarea GATHER_FACTS
+                  # En ansible podemos usar variables. 
+                  # Podemos definir nuestras propias variables, ya lo veremos....
+                  # Ansible también me "regala" algunas variables por defecto.
+                  # Entre ellas la variable ansible_facts
+            # Puedo desactivar este comportamiento con la opción gather_Facts = False
+        -   name: Mostrar un mensaje por pantalla
+            # En este nivel vamos a tener a nuestra disposición tanto palabra propias de ansible,
+            # como palabra propias de los MODULOS que vamos a utilizar.
+            # Por ahora nos vamos a centrar en las palabras PROPIAS DE ANSIBLE <=   ESTAS SON LAS QUE NOS INTERESA 
+            #                                                                       APRENDER EN LA FORMACION
+            debug:
+                msg: Soy el mensaje de la primera tarea!
+                
+        -   
+            name: Mostrar un segundo mensaje por pantalla
+            debug:
+                msg: Soy el mensaje de la segunda tarea!
+        
+        -   
+            debug:
+                msg: Soy el mensaje de la tercera tarea!
+            name: Mostrar un tercer mensaje por pantalla
+            
+        -   name: Mostrar los facts que ANSIBLE ha traido del entorno administrado
+            debug:
+                var: ansible_facts
+            
+                
+                
