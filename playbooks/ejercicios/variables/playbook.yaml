@@ -1,0 +1,22 @@
+# Quiero que saqueis por pantalla:
+
+# La distribucion de SO que estoy usando
+# La versión de ese SO
+
+# El número de cpus que tiene
+
+# La memoria swap en uso
+-   hosts:              localhost
+    gather_facts:       true
+    tasks:
+        # Tarea que muestre datos del entorno
+        -   name:       Mostrar los datos solicitados
+            debug:
+                msg: |-
+                        El entorno tiene las siguientes características:
+                        - Distribución:             {{ ansible_facts.distribution }}
+                        - Versión del SO:           {{ ansible_facts.distribution_version }}
+                        - Número de cpus:           {{ ansible_facts.processor_vcpus }}
+                        - Número de cpus calculado: {{ ansible_facts.processor | length / 3 }}
+                        - Memoria SWAP en uso:      {{ ansible_facts.memory_mb.swap.used }}
+                        - Memoria SWAP en uso:      {{ ansible_facts.swaptotal_mb - ansible_facts.swapfree_mb }}

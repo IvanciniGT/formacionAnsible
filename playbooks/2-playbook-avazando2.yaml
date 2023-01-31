@@ -1,10 +1,10 @@
-# Variables
-# Controlar la salida de un modulo
-# Condicionales
+# Variables                             √
+# Controlar la salida de un modulo      √
+# Condicionales                         √~
 # Tareas de rescate
 
 -   hosts:              localhost
-    gather_facts:       false
+    gather_facts:       false #true
     vars:                               # Que aquí solo definiré unos pocos valores... CASI NINGUNO
         servicio:
             instalar:   true
@@ -14,6 +14,9 @@
                       - 443
         usuario: lucas
     tasks:
+        ##############################################################################################################################
+        #       TAREAS MANEJANDO VARIABLES
+        ##############################################################################################################################
         # Tarea que accede a una variable
         -   name:       Mostrar el contenido de la variable
             debug:
@@ -58,3 +61,226 @@
                 msg:    >-
                             El usuario por defecto para el que debemos realizar la instalación 
                             del servicio es: {{ usuario }}
+        # A cualquier variable le puedo preguntar
+        #       is defined
+        #       is undefined
+        
+        ##############################################################################################################################
+        #       OBTENER INFORMACION DE VUELTA DE UN MODULO
+        ##############################################################################################################################
+        # Tarea que accede a una variable
+        -   name:               "Tarea 23: Ejecutar un comando y capturar los datos de salida"
+            shell:                                                              # ejecutar una serie de comandos
+                cmd:            echo HOLA && echo ADIOS && exit 15
+            # Qué información podré obtener de vuelta? 
+            # Return code : 0 ===> Ha ido bien
+            #               >0 ==> Ha ido mal
+            # salida estandar stdout
+            # salida error.   stderr
+            # estado:
+            #   success     En base al return code == 0
+            #   failed      En base al return code > 0
+            #   changed     No tiene forma de saberlo
+            #               Este módulo siempre devuelve que la tarea HA PROVOCADO CAMBIO
+                            # Mi playbook puede funcionar asi perectamente. NUNCA JAMAS SERIA UNA BUENA POLITICA DEJAR ESTO ASI
+                            # La segunda vez que yo ejecute un playbook (a no ser que el playbook funcionalmente cada vez que se ejecute haga algo nuevo)
+                            # cúantas tareas deberían aparecer como changed? NINGUNA !
+                            # Y si aparecen tareas changed, el que esté llamando al playbook va a pensar que esto ha cambiado cosas! ==> IMPACTO
+            # Para poder acceder a los datos que devuelve un módulo, usamos la palabra: `register: nombre_variable_nuevo`
+            register:           salida_tarea_23
+                    # A la variable del register, con idenpendencia del modulo, SIEMPRE LE PUEDO PREGUNTAR:
+                    #   is success
+                    #   is failed
+                    #   is skipped
+                    #   is changed            
+            changed_when:       salida_tarea_23.rc > 0 and salida_tarea_23.rc <10
+            ignore_errors:      true #salida_tarea_23.rc < 20
+            
+        -   name:               "Tarea 24: Mostrar la salida estandar y de error del comando anterior"
+            debug:
+                msg: |-
+                                La salida estandar fue: {{ salida_tarea_23.stdout }}
+                                La salida de error fue: {{ salida_tarea_23.stderr }}
+
+        ##############################################################################################################################
+        #       TAREAS CONDICIONALES
+        ##############################################################################################################################
+
+        -   name:               Tarea CONDICIONAL que se ejecuta en base al estado de la tarea 23
+            debug:
+                msg: |-
+                                NO DEBO EJECUTARME
+            # Me permite determinar cúando quiero que se ejecute una tarea
+            when: salida_tarea_23 is success
+                    # Aqui vale cualquier tipo de expresion. NO HACE FALTA METER LLAVES,
+                    # Igual que no hace falta en el changed_when, failed_when, ignore_errors, debug: var
+                    
+        -   name:               Tarea CONDICIONAL que se ejecuta en base al estado de la tarea 23
+            debug:
+                msg: |-
+                                SI DEBO EJECUTARME
+            register: salida
+            # Me permite determinar cúando quiero que se ejecute una tarea
+            when: salida_tarea_23 is failed
+                    
+        -   name:               Tarea que se ejecuta solo para las máquinas UBUNTU
+            debug:
+                msg: |-
+                                Solo me ejecuto si es una máquina ubuntu!
+            # when: ansible_facts.distribution == 'Ubuntu'
+            
+            # En el when podeis anidar condiciones mediante:
+            #     and
+            #     or
+            # Adicionalmente, podeis suministrar una lista de expresiones
+                    
+            when: 
+                - ansible_facts.sistema | default(ansible_facts.distribution)  in ['Ubuntu', ' Debian', 'Xubuntu']
+                #- ansible_facts.sistema == 'Ubuntu' # Suele ser más conveniente
+                #- ansible_facts.get("sistema",ansible_facts.distribution) == 'Ubuntu' # Suele ser más conveniente
+                - ansible_facts.distribution_major_version > 16
+                # Cuando suministramos una lista , ANSIBLE anida esas expresiones con un "and"
+
+        # Otra forma de ejecutar tareas condicionalmente sería mediante el uso de HANDLERS
+        # Son geniales , pero su funcionalidad es muy concreta
+        
+        # Otra forma: TAGS
+        # Buenas prácticas: TODA TAREA debería llevar tags asignados en un play
+        # Nos permite clasificar las tareas en GRUPOS o TIPOS:
+        # - Tareas de INSTALACION
+        # - Tareas de CONFIGURACION
+        # - Tareas de PRUEBAS (que siemrpe las necesito)
+        
+        # Al ejecutar un playbook:
+        
+        # $ ansible-playbook <playbook> --tags <tags que quiero que se ejecuten>
+        # $ ansible-playbook <playbook> --skip-tags <tags que quiero que no se ejecuten>
+        
+        -   name:       Instalar tal cosa
+            debug:
+                msg:    Estoy instalando lo que sea 
+            tags:
+                - INSTALACION
+
+        -   name:       Instalar otra cosa
+            debug:
+                msg:    Estoy instalando otra cosa 
+            tags:
+                - INSTALACION
+
+        -   name:       Configruar tal cosa
+            debug:
+                msg:    Estoy configurando lo que sea 
+            tags:
+                - CONFIGURACION
+
+        -   name:       Instalar y Configruar tal cosa
+            debug:
+                msg:    Estoy configurando lo que sea 
+            tags:
+                - INSTALACION
+                - CONFIGURACION
+
+        -   name:       Probar tal cosa
+            debug:
+                msg:    Estoy probando lo que sea 
+            tags:
+                - PRUEBAS
+        
+        ##############################################################################################################################
+        #       TAREAS BUCLES
+        ##############################################################################################################################
+        -   name:       Tarea en bucle
+            debug:
+                        # Cuando montamos un bucle, Ansible nos regala la variable {{ item }}
+                msg:    "Mostrar un mensaje: {{ item }}"
+                
+            #loop: # Necesitamos meter una lista
+                # Esto no es muy habitual
+                # - dato 1
+                # - dato 2
+                # - dato 3
+            loop: "{{ servicio.puertos }}"
+            tags:
+                - BUCLES
+      
+        -   name:       Tarea en bucle
+            debug:
+                msg:    "Mostrar un mensaje: {{ servicio.puertos[puerto] }}"
+                
+            #loop: # Necesitamos meter una lista
+                # Esto no es muy habitual
+                # - dato 1
+                # - dato 2
+                # - dato 3
+            loop: "{{ servicio.puertos }}"
+            loop_control:
+                index_var: puerto
+            tags:
+                - BUCLES              
+                
+        -   name:       Tarea en bucle
+            debug:
+                msg:    "Mostrar un mensaje: {{ item }}"
+            loop: 
+                - 80
+                - 200
+                - 400
+            # Pero quiero que se ejecute solo para los valores de la lista mayores que el 190
+            when: item > 190    # Al haber un loop, el when se aplica a cada item sobre los que itero
+            tags:
+                - BUCLES              
+        
+        ##############################################################################################################################
+        #       TAREAS EN BLOQUE
+        ##############################################################################################################################
+  
+        -   name:               Tareas en bloque
+            block:              # Me permite agrupar tareas
+                -   name:       Tarea en bloque 1
+                    debug:
+                        msg:    Tarea en bloque 1
+                        
+                -   name:       Tarea en bloque 2
+                    debug:
+                        msg:    Tarea en bloque 2
+                        
+                -   name:       Tarea en bloque 3
+                    debug:
+                        msg:    Tarea en bloque 3
+            when:
+                - 1 > 3
+            tags:
+                - UBUNTU
+            #ignore_errors: true
+
+        -   name:               Tareas en bloque
+            block:              # Me permite agrupar tareas. Actuaría como un "try"
+                -   name:       Tarea en bloque 1
+                    debug:
+                        msg:    Tarea en bloque 1
+                        
+                -   name:       Tarea en bloque 2
+                    shell:
+                        cmd:    exit 1
+                        
+                -   name:       Tarea en bloque 3
+                    debug:
+                        msg:    Tarea en bloque 3
+            rescue:
+                -   name:       "Tarea que se ejecuta si alguna de las tareas del block da un error : catch / except"
+                    debug:
+                        msg:    Alguna tarea anterior ha dado error
+            always: 
+                -   name:       "Tareas que se ejecutan siempre, haya habido error, o no. Equivalente a finally"
+                    debug:
+                        msg:    Yo me ejecuto siempre
+            
+            tags:
+                - RESCUE
+            
+        -   name:       Otra tarea fuera del bloque
+            debug:
+                msg:    Otra tarea fuera del bloque
+            tags:
+                - RESCUE
