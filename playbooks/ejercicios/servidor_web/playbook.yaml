@@ -1,0 +1,15 @@
+# Quiero instalar el servidor web nginx y lo quiero montar en máquinas UBUNTU
+# Lo único que quiero dejar el nginx funcionando en un puerto de mi interés
+# Quiero poder trabajar con mi propio document root
+# Que se rellene con los ficheros que tengamos en un repo de git
+# https://github.com/IvanciniGT/webEjemploAnsible
+
+
+-   hosts:              localhost
+    gather_facts:       false
+    vars:
+    
+    tasks:
+        -   name:       Mostrar el contenido de la variable
+            debug:
+                var:    servicio
