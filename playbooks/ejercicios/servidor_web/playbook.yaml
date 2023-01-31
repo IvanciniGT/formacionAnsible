@@ -13,3 +13,42 @@
         -   name:       Mostrar el contenido de la variable
             debug:
                 var:    servicio
+
+# Qué nombre damos a las tareas en ansible, VERBOS en imperativo? o en infinitivo. NO
+## SIEMPRE RESPETANDO EL CONCEPTO DE IDEMPOTENCIA !
+# De paso... teniendo en cuenta que NO LA LIO EN PRODUCCION !
+
+
+VARIABLES??? 
+
+PRE_TASKS
+# Asegurarme que los repos de ubuntu de apt están actualizados
+# Asegurarme que tengo instaaldo git 
+# Asegurarme que tengo instaaldo curl  
+
+TASKS
+# Asegurarme que el servicio de nginx está detenido... Si existe y si la configuración/version cambia !
+# Asegurarme que tal versión de nginx está instalada
+# Asegurarme que el nginx tiene la configuración que quiero
+# Asegurarme que tengo un servicio de nginx
+# Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
+# Y si ha cambiado esto? Pero nada más -> REINICIO DEL SERVICIO / Servidor que use -> RELOAD -> HANDLER !
+# Asegurarme que el servicio de nginx está levantado
+
+POST_TASKS
+# Pruebas de humo!
+# curl ...
+# notificacion!
+
+HANDLER
+# Reinicio del servicio
+
+# Quien podría llamar al script? 
+#   Automáticamente por patrte de un servidor de automatición: JENKINS
+# Ante qué eventos? 
+    # Actualización del repo
+    # Cambio en la confg de nginx
+    # Quiera subir a una version de nginx
+    # sistema de monitorización: Maquina KO -> 
+    # Añadir máquinas ESCALAR
+
