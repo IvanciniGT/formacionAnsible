@@ -8,40 +8,66 @@
 -   hosts:              localhost
     gather_facts:       false
     vars:
-    
+        nginx:
+            version: 
+        app:
+            repo:
+            document_root:
+            puerto:
+            test:
+                -   url:
+                    response:
+                -   url:
+                    response:
+                    
+    pre_tasks:
+        -   name:       Asegurarme que estoy en una máquina UBUNTU
+
+        -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
+
+        -   name:       Asegurarme que tengo instaaldo git
+
+        -   name:       Asegurarme que tengo instaaldo curl
+
     tasks:
-        -   name:       Mostrar el contenido de la variable
-            debug:
-                var:    servicio
+        -   name:       Asegurarme que el servicio de nginx está detenido si debe estarlo
+            block:
+                -   name:   ???
+
+        -   name:       Asegurarme que tal versión de nginx está instalada
+
+        -   name:       Asegurarme que el nginx tiene la configuración que quiero
+
+        -   name:       Asegurarme que tengo un servicio de nginx
+
+        -   name:       "Guardar en algún sitio la versión que ahora mismo estaba en funcionamiento : TAG de GIT"
+
+        -   name:       Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
+            notify:     CONTENIDO_APP_CAMBIADO
+
+        -   name:       Asegurarme que el servicio de nginx está levantado
+
+    ppst_tasks:
+        -   name:       Pruebas de humo
+            block: 
+                -   name:   Asegurarme que la máquina tiene conectividad
+        
+                -   name:   Asegurarme que nginx está arriba
+        
+                -   name:   Asegurarme que nginx esta sirviendo la app
+
+                -   name:       Notificacion ok
+            rescue:
+                -   name:       Notificacion error
+            
+    handlers:
+        name:           Reinicio del servicio de nginx
+        listen:
+                      - CONTENIDO_APP_CAMBIADO
 
 # Qué nombre damos a las tareas en ansible, VERBOS en imperativo? o en infinitivo. NO
 ## SIEMPRE RESPETANDO EL CONCEPTO DE IDEMPOTENCIA !
 # De paso... teniendo en cuenta que NO LA LIO EN PRODUCCION !
-
-
-VARIABLES??? 
-
-PRE_TASKS
-# Asegurarme que los repos de ubuntu de apt están actualizados
-# Asegurarme que tengo instaaldo git 
-# Asegurarme que tengo instaaldo curl  
-
-TASKS
-# Asegurarme que el servicio de nginx está detenido... Si existe y si la configuración/version cambia !
-# Asegurarme que tal versión de nginx está instalada
-# Asegurarme que el nginx tiene la configuración que quiero
-# Asegurarme que tengo un servicio de nginx
-# Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
-# Y si ha cambiado esto? Pero nada más -> REINICIO DEL SERVICIO / Servidor que use -> RELOAD -> HANDLER !
-# Asegurarme que el servicio de nginx está levantado
-
-POST_TASKS
-# Pruebas de humo!
-# curl ...
-# notificacion!
-
-HANDLER
-# Reinicio del servicio
 
 # Quien podría llamar al script? 
 #   Automáticamente por patrte de un servidor de automatición: JENKINS
