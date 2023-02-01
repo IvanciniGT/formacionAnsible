@@ -13,7 +13,7 @@
         app:
             tag: 
             repo:
-            document_root:
+            document_root:  /var/app
             host: 
             puerto:
             test:
@@ -31,6 +31,7 @@
             setup:
                 gather_subset:
                   - distribution
+                  - date_time
             tags: 
                 - obligatorio
     
@@ -182,25 +183,39 @@
             tags: 
                 - despliegue # configuracion
                 
-        -   name:       Asegurarme que tengo un servicio de nginx
+#        -   name:       Asegurarme que tengo un servicio de nginx
                     # Crear el servicio de nginx si es que no está ya creado
-            tags: 
-                - instalacion
+#            tags: 
+#                - instalacion
+                    # Nos sale gratis via apt... Si instalasemos un script/programa propio, y no va vía apt, 
+                    # Nos tocaría de un unit file, con un template
                 
         -   name:       "Guardar en algún sitio la versión que ahora mismo estaba en funcionamiento : TAG de GIT"
                         # Extraer esa info (tag de git o un backup completo) y guarlarla en un archivo
+            archive:
+                path:       "{{ app.document_root }}"
+                format:     tar
+                dest:       "{{ app.document_root }}{{ ansible_date_time }}.tar"
             tags: 
                 - despliegue
                 - backup
 
         -   name:       Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
                         # Extraer de git la version solicitada de la app
+            git:
+                repo:       "{{ app.repo }}"
+                dest:       "{{ app.document_root }}"
+                version:    "{{ app.version }}"
             notify:     DESPLIEGUE_CAMBIADO
             tags: 
                 - despliegue
                 
         -   name:       Asegurarme que el servicio de nginx está levantado y activado
                         # Habla por si solo!
+            service:
+                name:       nginx
+                state:      started
+                enabled:    true
             tags:
                 - instalacion
                 - despliegue
@@ -224,10 +239,14 @@
                         - pruebas
 
                 -   name:   Notificacion ok
+                    debug:
+                        msg:    TODO BIEN
                     tags:
                         - notificacion
             rescue:
                 -   name:   Notificacion error
+                    debug:
+                        msg:    TODO RUINA !!!!!
                     tags:
                         - notificacion
             tags:
@@ -236,6 +255,9 @@
             
     handlers:
         name:           Reinicio del servicio de nginx
+            service:
+                name:  nginx
+                state: restarted
         listen:
                       - DESPLIEGUE_CAMBIADO
 
