@@ -151,3 +151,7 @@ Jinja de serie vienen con un MONTONON de filtros predefinidos:
 Ansible añade un huevo más de filtros a JINJA
 [Página con los filtros adicionales de ANSIBLE](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_filters.html)
 
+
+# DEVOPS
+
+Cultura de la AUTOMATIZACION.

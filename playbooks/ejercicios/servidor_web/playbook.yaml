@@ -3,7 +3,7 @@
 # Quiero poder trabajar con mi propio document root
 # Que se rellene con los ficheros que tengamos en un repo de git
 # https://github.com/IvanciniGT/webEjemploAnsible
-
+# RESPETANDO EL PRINCIPIO DE IDEMPOTENCIA !
 
 -   hosts:              localhost
     gather_facts:       false
@@ -19,15 +19,15 @@
                     response:
                 -   url:
                     response:
-                    
+      
     pre_tasks:
         -   name:       Asegurarme que estoy en una máquina UBUNTU
 
         -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
 
-        -   name:       Asegurarme que tengo instaaldo git
+        -   name:       Asegurarme que tengo instalado git
 
-        -   name:       Asegurarme que tengo instaaldo curl
+        -   name:       Asegurarme que tengo instalado curl
 
     tasks:
         -   name:       Asegurarme que el servicio de nginx está detenido si debe estarlo
@@ -47,7 +47,7 @@
 
         -   name:       Asegurarme que el servicio de nginx está levantado
 
-    ppst_tasks:
+    post_tasks:
         -   name:       Pruebas de humo
             block: 
                 -   name:   Asegurarme que la máquina tiene conectividad
@@ -56,9 +56,9 @@
         
                 -   name:   Asegurarme que nginx esta sirviendo la app
 
-                -   name:       Notificacion ok
+                -   name:   Notificacion ok
             rescue:
-                -   name:       Notificacion error
+                -   name:   Notificacion error
             
     handlers:
         name:           Reinicio del servicio de nginx
@@ -78,3 +78,29 @@
     # sistema de monitorización: Maquina KO -> 
     # Añadir máquinas ESCALAR
 
+# Firewall
+
+
+
+---
+#Tareas pendientes
+REQUISITO:
+    - Saber lo que estoy automatizando y cómo es ese proceso... Mas me vale haberlo hecho alguna que otra vez
+    - Si no voy más perdido que una rosquilla en el desierto !
+
+TODO:
+    - Reestructurar mejor las variables     > Cuando sepa qué variables (REFACTORIZACION))
+    - Investigar los módulos... cuando vaya a escribir los módulos !
+        - Ponerme como loco a escribir modulos  > Si... pero quizás no aún
+    - Dar valores INICIALES a las variables > Cuando pruebe
+
+Podríamos crear un play DUMMY, con la estructura pero haga na' > NO ESTA MAL...
+
+
+DONE:
+    - Estructura de tareas (play)
+    - Variables previas que se me han ocurrido y su estructura
+    - Lógica del play ? 
+        when
+        loop
+        tag
