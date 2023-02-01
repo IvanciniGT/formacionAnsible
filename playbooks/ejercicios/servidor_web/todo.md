@@ -35,4 +35,29 @@
 #        when
 #        loop
 #        tag
-        
+
+
+
+/etc/
+    nginx/
+            conf/
+                    servicio.app1.conf.bak
+                        document_root: /datos/app1
+                    servicio.app1v2.conf
+/datos/
+        app1/ -> link simbólico a /datos/app1v1 -> /datos/app1v2
+        app1v1/
+        app1v2/
+    
+Recargo virtual host en ngnix
+    nginx   -s servicio.app1v2
+            -r
+    nginx -s reload
+
+// Miro si funciona... si no
+
+Borro el .conf nuevo
+Quito el .bak al viejo
+Restauro la ruta del link simbólico 
+
+// Y lo dejo como estaba... si esa funcionalidad es la requerida
