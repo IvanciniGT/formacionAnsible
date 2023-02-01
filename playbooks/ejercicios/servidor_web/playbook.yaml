@@ -1,10 +1,3 @@
-# Quiero instalar el servidor web nginx y lo quiero montar en máquinas UBUNTU
-# Lo único que quiero dejar el nginx funcionando en un puerto de mi interés
-# Quiero poder trabajar con mi propio document root
-# Que se rellene con los ficheros que tengamos en un repo de git
-# https://github.com/IvanciniGT/webEjemploAnsible
-# RESPETANDO EL PRINCIPIO DE IDEMPOTENCIA !
-
 -   hosts:              localhost
     gather_facts:       false
     vars:
@@ -17,10 +10,8 @@
             host: 
             puerto:
             test:
-                -   url:
-                    response:
-                -   url:
-                    response:
+                -   url:        http://localhost/index.html
+                    respuesta:   fichero de la WEB
         required:
             - curl
             - git
@@ -225,16 +216,25 @@
 
     post_tasks:
         -   name:       Pruebas de humo
-            block: 
-                -   name:   Asegurarme que la máquina tiene conectividad
-                    tags:
-                        - pruebas
-
-                -   name:   Asegurarme que nginx está arriba
+            block:
+                -   name:   Asegurarme que nginx contesta cuando le llamo
+                    wait_for:
+                        host:   {{ ansible_hostname }} # esta a veces me viene guay
+                        port:   {{ app.puerto }}
+                        timeout:  10
+                        delay:  10
+                        state:  started
                     tags:
                         - pruebas
 
                 -   name:   Asegurarme que nginx esta sirviendo la app
+                    uri:
+                        url:                {{ item.url }}
+                        return_content:     yes
+                        return_code:        200
+                    register:               conexion
+                    failed_when:            item.respuesta not in conexion.content
+                    loop: "{{ app.test }}"
                     tags:
                         - pruebas
 
@@ -260,4 +260,6 @@
                 state: restarted
         listen:
                       - DESPLIEGUE_CAMBIADO
-
+        tags:
+            - despliegue
+            - instalacion

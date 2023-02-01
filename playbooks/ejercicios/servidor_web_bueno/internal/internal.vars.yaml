@@ -1,0 +1,6 @@
+# NO SE TE OCURRA TOCAR ESTO...
+# NO SE QUE HACES MIRANDO ESTE FICHERO
+# Por cierto, buen dia !
+required:
+    - curl
+    - git

@@ -1,0 +1,10 @@
+
+-   name:           Reinicio del servicio de nginx
+        service:
+            name:  nginx
+            state: restarted
+    listen:
+                  - DESPLIEGUE_CAMBIADO
+    tags:
+        - despliegue
+        - instalacion

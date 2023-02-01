@@ -1,0 +1,14 @@
+
+    # Necesito chequear que la máquina sea UBUNTU... ya que si no es CIERRO EL GRIFO !
+-   name:       Asegurarme que estoy en una máquina UBUNTU
+    # ACABAR EL PLAY.
+    meta: end_host
+    when: # Si no estoy en una máquina UBUNTU
+          # Y de donde lo saco? ansible_facts... los tengo? NO
+        # Pues habrña que conseguirlos: Opciones:
+        # 1: gather_facts -> true       Esto es pa' los novatos de ansible.
+                                        # Nosotros somo pro !
+        # 2: pedir los datos que necesito
+        - ansible_facts.distribution != "Ubuntu"
+    tags: 
+        - obligatorio

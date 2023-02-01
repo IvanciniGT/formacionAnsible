@@ -1,0 +1,14 @@
+-   name:       Extraer información relevante de la máquina
+    setup:
+        gather_subset:
+          - distribution
+          - date_time
+    tags: 
+        - obligatorio
+
+-   name:       "DEBUG: Mostrar la distribución"
+    debug:
+        var:        ansible_facts.distribution
+    tags: 
+        - debug
+        

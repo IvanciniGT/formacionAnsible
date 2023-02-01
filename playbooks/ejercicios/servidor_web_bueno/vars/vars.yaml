@@ -1,0 +1,11 @@
+nginx:
+    version: 
+app:
+    tag: 
+    repo:
+    document_root:  /var/app
+    host: 
+    puerto:
+    test:
+        -   url:            http://localhost/index.html
+            respuesta:      fichero de la WEB

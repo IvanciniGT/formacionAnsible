@@ -1,0 +1,27 @@
+all:
+    hosts:
+        mipc:
+            ansible_connection: local
+            ansible_host:       localhost
+            nginx:
+                version: 1.14.0
+    children:
+        webservers:
+            children:
+                apache:
+                    hosts:
+                        apache.desa:
+                            ansible_host: apache.desa.miempresa.net
+                        apache.test:
+                            ansible_host: apache.test.miempresa.net
+                        apache.prod:
+                            ansible_host: apache.prod.miempresa.net
+                    vars:
+                        ansible_connection: ssh
+                nginx:
+                    hosts:
+                        "nginx[01:20]":
+                            ansible_connection: ssh
+            vars:
+                puerto: 80
+                ansible_ssh_private_key_file: /RUTA/DE/MI/CLAVE

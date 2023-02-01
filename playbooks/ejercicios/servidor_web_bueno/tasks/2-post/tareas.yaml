@@ -1,0 +1,38 @@
+
+-   name:       Pruebas de humo y notificaciones
+    block:
+        -   name:   Asegurarme que nginx contesta cuando le llamo
+            wait_for:
+                host:   {{ ansible_hostname }} # esta a veces me viene guay
+                port:   {{ app.puerto }}
+                timeout:  10
+                delay:  10
+                state:  started
+            tags:
+                - pruebas
+
+        -   name:   Asegurarme que nginx esta sirviendo la app
+            uri:
+                url:                {{ item.url }}
+                return_content:     yes
+                return_code:        200
+            register:               conexion
+            failed_when:            item.respuesta not in conexion.content
+            loop: "{{ app.test }}"
+            tags:
+                - pruebas
+
+        -   name:   Notificacion ok
+            debug:
+                msg:    TODO BIEN
+            tags:
+                - notificacion
+    rescue:
+        -   name:   Notificacion error
+            debug:
+                msg:    TODO RUINA !!!!!
+            tags:
+                - notificacion
+    tags:
+        - despliegue
+        - instalacion

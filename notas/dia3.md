@@ -105,3 +105,54 @@ Nosotros ya hemos juagdo con algunos módulos:
 
 shell:
     cmd: mkdir -p /datos         >>> WARNING 
+    
+---
+
+# Inventarios
+
+Es un catalogo de entornos remotos sobre los que potencialmente vamos a aplicar unos playbooks
+
+## Sintaxis para escribir eso:
+
+3 sintaxis diferentes.
+
+### INI
+
+Son muy muy muy sencillos de escribir. NOS ENCANTAN.... 
+Siempre claro, que no quiera escribir mucho... especialmente VARIABLES
+Porque entonces son MUY MUY MUY COMPLEJOS y voy jodido... hasta limites INIMAGINABLES !
+
+### YAML
+
+Son geniales, PERO NO LOS USARIA NI AUNQUE DEPENDIERA MI PUESTO DE TRABAJO DE ELLO
+Geniales en cuanto a cómo estructuran la infromación....
+Y en cuanto a cómo me permiten meter las variables
+PERO: 
+    SON UNA MIERDA GIGANTE !!!!!
+    Que no tenga 1000 máquinas con 10 variables cada una
+    Que me sale un fichero con 10000 lineas
+        Y a ver quien le mete mano
+
+### CARPETAS con archivos INI y YAML                *******
+
+GENIAL !!!!!
+Lo mejor de los 2 mundos!
+
+
+---
+
+Cómo nos vamos a conectar con nuestros 5578 servidores linux que tengo contratados en AWS
+    ssh
+
+2º Desde donde vamos a ejecutar un playbook
+    Donde esté instalado ansible:
+        AWX/TOWER
+            -> contenedor
+
+3º Para conectarme con ssh con un entorno remoto, necesito
+    - Conectividad
+    - Usuario
+    - Clave
+    
+playbook: De de alta los servidores en el known hosts
+

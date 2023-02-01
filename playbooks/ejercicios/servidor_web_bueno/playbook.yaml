@@ -1,0 +1,39 @@
+-   hosts:              localhost
+    gather_facts:       false
+
+    pre_tasks:
+                            # Carga de facts del remoto...
+        -   name:           Instalación de los requerimiento básicos del playbook
+            include_tasks:  tasks/0-pre/0-carga-datos.yaml
+            
+                            # Asegurarnos que tenemos una maquina Ubuntu...
+        -   name:           Instalación de los requerimiento básicos del playbook
+            include_tasks:  tasks/0-pre/1-comprobacion.ubuntu.yaml
+            
+                            # Carga de variables de usuario
+        -   name:           Carga de las variables con los datos de nginx y del despliegue
+            include_vars:   vars/vars.yaml
+            
+                            # Carga de variables internas...
+        -   name:           Carga de las variables internas
+            include_vars:   internal/internal.vars.yaml
+            
+                            # Aquí montamos el curl, el git, actualizamos repos...
+        -   name:           Instalación de los requerimiento básicos del playbook
+            include_tasks:  tasks/0-pre/tareas.yaml
+            
+    tasks:
+                            # Aquí montamos el nginx y el despliegue de la app...
+        -   name:           Instalación de nginx y despliegue de la app
+            include_tasks:  tasks/1-main/tareas.yaml
+            
+    post_tasks:
+                            # Aquí probamos el correcto funcionamiento y notificamos...
+        -   name:           Pruebas de humo al nginx y app
+            include_tasks:  tasks/2-posts/tareas.yaml
+            
+    handlers:
+                            # Cosillas (reinicio de servicio...)
+        -   name:           Handlers varios
+            include_tasks:  tasks/handlers/tareas.yaml
+    

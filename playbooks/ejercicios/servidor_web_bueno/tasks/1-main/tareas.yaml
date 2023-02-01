@@ -1,0 +1,146 @@
+
+-   name:       Mirar si nginx está instalado
+    shell:
+        cmd:        "nginx -v 2>&1 | egrep -o '[0-9.]+'"
+    register:       pre_instalado_nginx
+    changed_when:   false       # Por defecto un shell se marca siempre como CHANGED. No queremos eso
+    failed_when:    false       # Si no está nginx, daría error... pero para nosotros no es un error,
+                                # Es la forma de saber si nginx está instalado
+    tags: 
+        - instalacion
+
+-   name:       "DEBUG: Mostrar la salida del comando de nginx para saber si existe"
+    debug:
+        var:        pre_instalado_nginx
+    tags: 
+        - debug
+        
+-   name:       Mirar si hay un servicio para nginx
+    service_facts:
+    tags: 
+        - instalacion
+        
+    # Mirar si está instalado:
+    #   qué versión está instalada
+    #       Si la versión de nginx ha cambiado? DETENER SERVICIO
+    #   el puerto en el que churulaba y document root
+    #       Si ha cambiado? DETENER SERVICIO
+-   name:       Asegurarme que el servicio de nginx está detenido si es necesario
+    block:
+        -   name:   Consultar el puerto
+            shell:
+                cmd: >
+                        egrep 
+                            -o "^\\s+listen ([0-9]+) " 
+                            /etc/nginx/sites-available/default 
+                        | egrep 
+                            -o "[0-9]+"
+            changed_when:   false
+            failed_when:    false
+            register: puerto_previo_nginx
+        
+        -   name:   Consultar el document_root
+            shell:
+                cmd: >
+                        egrep 
+                            -o "^\\s+root .*;" 
+                            /etc/nginx/sites-available/default 
+                        | egrep 
+                            -o "/[^;]+"
+            changed_when:   false
+            failed_when:   false
+            register: document_root_previo_nginx
+
+            # regex101.com
+
+        -   name:   Asegurarse que el servicio queda detenido en caso necesario
+            service:
+                name: nginx
+                state: stopped
+            when: >   
+                    pre_instalado_nginx.stdout.strip()          != nginx.version        or
+                    puerto_previo_nginx.stdout.strip()          != app.puerto           or
+                    document_root_previo_nginx.stdout.strip()   != app.document_root
+            # Si la version de nginx instalada es distinta de la solicitada
+            #  version_previa_nginx             nginx.version
+            # O si el puerto ha cambiado
+            #  puerto_previo_nginx              app.puerto
+            # O si el document_root ha cambiado
+            #  document_root_previo_nginx       app.document_root
+        
+    when: # nginx esté instalado y tiene servicio
+        # - pre_instalado_nginx is failed? NO , ya que yo le he dicho que nunca falle
+        - pre_instalado_nginx.rc == 0   # pre_instalado_nginx
+        - ansible_facts.services['nginx.service'] is defined   # pre_creado_servicio_nginx
+    tags: 
+        - instalacion
+        - configuracion
+
+-   name:       Asegurarme que tal versión de nginx está instalada
+                # Se encarga de instalar la nueva versión, caso de que no esté instalada
+    apt:
+        name:               "nginx={{nginx.version}}"
+        state:              present
+        allow_downgrade:    true
+        update_cache:       true   
+    tags: 
+        - instalacion
+        
+-   name:       Asegurarme que el nginx tiene la configuración que quiero
+                # Meter run fichero .conf
+    block: 
+        -   name:   Asegurarme que la nueva configuración queda aplicada y que tengo backup
+            template:
+                src:    templates/plantilla_fichero_configuracion_nginx.jinja2
+                dest:   /etc/nginx/sites/available/default
+                mode:   '0444'
+                backup: true
+            notify:     DESPLIEGUE_CAMBIADO
+    when: >
+            puerto_previo_nginx.stdout.strip()          != app.puerto           or
+            document_root_previo_nginx.stdout.strip()   != app.document_root
+        # O si el puerto ha cambiado
+        #  puerto_previo_nginx              app.puerto
+        # O si el document_root ha cambiado
+        #  document_root_previo_nginx       app.document_root
+    tags: 
+        - despliegue # configuracion
+        
+#        -   name:       Asegurarme que tengo un servicio de nginx
+            # Crear el servicio de nginx si es que no está ya creado
+#            tags: 
+#                - instalacion
+            # Nos sale gratis via apt... Si instalasemos un script/programa propio, y no va vía apt, 
+            # Nos tocaría de un unit file, con un template
+        
+-   name:       "Guardar en algún sitio la versión que ahora mismo estaba en funcionamiento : TAG de GIT"
+                # Extraer esa info (tag de git o un backup completo) y guarlarla en un archivo
+    archive:
+        path:       "{{ app.document_root }}"
+        format:     tar
+        dest:       "{{ app.document_root }}{{ ansible_date_time }}.tar"
+    tags: 
+        - despliegue
+        - backup
+
+-   name:       Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
+                # Extraer de git la version solicitada de la app
+    git:
+        repo:       "{{ app.repo }}"
+        dest:       "{{ app.document_root }}"
+        version:    "{{ app.version }}"
+    notify:     DESPLIEGUE_CAMBIADO
+    tags: 
+        - despliegue
+        
+-   name:       Asegurarme que el servicio de nginx está levantado y activado
+                # Habla por si solo!
+    service:
+        name:       nginx
+        state:      started
+        enabled:    true
+    tags:
+        - instalacion
+        - despliegue
+        - obligatorio
+

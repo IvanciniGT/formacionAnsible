@@ -1,0 +1,19 @@
+#        -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
+#            apt:
+#                update_cache: yes
+#            tags: 
+#                - preinstalacion
+#                - prerequisitos
+    
+-   name:       Asegurarme que tengo instalado lo que sea que necesito tener instalado
+    # Bloque :
+        # 1ª tarea que ahora no estamos poiendo 
+        #       Dar de alta el repo en apt y la clave del repo
+    apt:
+        name:       {{ item }}
+        state:      latest
+        update_cache: true   # Esto me evita la tarea de arriba
+    loop: "{{ required }}"
+    tags: 
+        - preinstalacion
+        - prerequisitos
