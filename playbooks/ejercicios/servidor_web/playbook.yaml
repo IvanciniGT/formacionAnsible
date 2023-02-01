@@ -14,6 +14,7 @@
             tag: 
             repo:
             document_root:
+            host: 
             puerto:
             test:
                 -   url:
@@ -53,12 +54,12 @@
             tags: 
                 - obligatorio
 
-        -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
-            apt:
-                update_cache: yes
-            tags: 
-                - preinstalacion
-                - prerequisitos
+#        -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
+#            apt:
+#                update_cache: yes
+#            tags: 
+#                - preinstalacion
+#                - prerequisitos
             
         -   name:       Asegurarme que tengo instalado lo que sea que necesito tener instalado
             # Bloque :
@@ -67,6 +68,7 @@
             apt:
                 name:       {{ item }}
                 state:      latest
+                update_cache: true   # Esto me evita la tarea de arriba
             loop: "{{ required }}"
             tags: 
                 - preinstalacion
@@ -110,7 +112,7 @@
                                 | egrep 
                                     -o "[0-9]+"
                     changed_when:   false
-                    failed_when:   false
+                    failed_when:    false
                     register: puerto_previo_nginx
                 
                 -   name:   Consultar el document_root
@@ -134,7 +136,7 @@
                     when: >   
                             pre_instalado_nginx.stdout.strip()          != nginx.version        or
                             puerto_previo_nginx.stdout.strip()          != app.puerto           or
-                            document_root_previo_nginx.stdout.strip()   != nginx.document_root
+                            document_root_previo_nginx.stdout.strip()   != app.document_root
                     # Si la version de nginx instalada es distinta de la solicitada
                     #  version_previa_nginx             nginx.version
                     # O si el puerto ha cambiado
@@ -150,35 +152,33 @@
                 - instalacion
                 - configuracion
 
-        -   name:       Asegurarme que no quedan versiones antiguas instaladas
-                        # Se encarga de deinstalar la versión previa, caso de que  esté instalada
-            when: 
-                # Si la version de nginx instalada es distinta de la solicitada
-                -  #pre_instalado_nginx
-                - #  version_previa_nginx    !=         nginx.version
-            tags: 
-                - instalacion
-                
         -   name:       Asegurarme que tal versión de nginx está instalada
                         # Se encarga de instalar la nueva versión, caso de que no esté instalada
-            when: 
-                # Si la version de nginx instalada es distinta de la solicitada
-                # no pre_instalado_nginx O 
-                #  version_previa_nginx    !=         nginx.version
+            apt:
+                name:               "nginx={{nginx.version}}"
+                state:              present
+                allow_downgrade:    true
+                update_cache:       true   
             tags: 
                 - instalacion
                 
         -   name:       Asegurarme que el nginx tiene la configuración que quiero
                         # Meter run fichero .conf
             block: 
-                -   name:   Hacer backup 
-                -   name:   Asegurarme que la nueva configuración queda aplicada
+                -   name:   Asegurarme que la nueva configuración queda aplicada y que tengo backup
+                    template:
+                        src:    ./plantilla_fichero_configuracion_nginx.jinja2
+                        dest:   /etc/nginx/sites/available/default
+                        mode:   '0444'
+                        backup: true
                     notify:     DESPLIEGUE_CAMBIADO
-            when:
-                        # O si el puerto ha cambiado
-                        #  puerto_previo_nginx              app.puerto
-                        # O si el document_root ha cambiado
-                        #  document_root_previo_nginx       app.document_root
+            when: >
+                    puerto_previo_nginx.stdout.strip()          != app.puerto           or
+                    document_root_previo_nginx.stdout.strip()   != app.document_root
+                # O si el puerto ha cambiado
+                #  puerto_previo_nginx              app.puerto
+                # O si el document_root ha cambiado
+                #  document_root_previo_nginx       app.document_root
             tags: 
                 - despliegue # configuracion
                 

@@ -1,0 +1,6 @@
+server {
+        listen          {{ app.puerto }};
+        server_name     {{ app.host }};
+        root            {{ app.document_root }};
+        index           index.html;
+}
