@@ -11,6 +11,7 @@
         nginx:
             version: 
         app:
+            tag: 
             repo:
             document_root:
             puerto:
@@ -19,51 +20,170 @@
                     response:
                 -   url:
                     response:
-      
+        required:
+            - curl
+            - git
+
     pre_tasks:
+        
+        -   name:       Extraer información relevante de la máquina
+            # Datos que necesito: 
+            #   - El SO????
+            tags: 
+                - obligatorio
+    
+            # Necesito chequear que la máquina sea UBUNTU... ya que si no es CIERRO EL GRIFO !
         -   name:       Asegurarme que estoy en una máquina UBUNTU
+            # ACABAR EL PLAY.
+            when: # Si no estoy en una máquina UBUNTU
+                  # Y de donde lo saco? ansible_facts... los tengo? NO
+                # Pues habrña que conseguirlos: Opciones:
+                # 1: gather_facts -> true       Esto es pa' los novatos de ansible.
+                                                # Nosotros somo pro !
+                # 2: pedir los datos que necesito
+            tags: 
+                - obligatorio
 
         -   name:       Asegurarme que los repos de ubuntu de apt están actualizados
+            tags: 
+                - preinstalacion
+                - prerequisitos
 
-        -   name:       Asegurarme que tengo instalado git
-
-        -   name:       Asegurarme que tengo instalado curl
+        -   name:       Asegurarme que tengo instalado lo que sea que necesito tener instalado
+            loop: "{{ required }}"
+            tags: 
+                - preinstalacion
+                - prerequisitos
 
     tasks:
-        -   name:       Asegurarme que el servicio de nginx está detenido si debe estarlo
+        -   name:       Mirar si nginx está instalado
+            register:   pre_instalado_nginx
+            tags: 
+                - instalacion
+        -   name:       Mirar si hay un servicio para nginx
+            register:   pre_creado_servicio_nginx
+            tags: 
+                - instalacion
+            # Mirar si está instalado:
+            #   qué versión está instalada
+            #       Si la versión de nginx ha cambiado? DETENER SERVICIO
+            #   el puerto en el que churulaba y document root
+            #       Si ha cambiado? DETENER SERVICIO
+        -   name:       Asegurarme que el servicio de nginx está detenido si es necesario
             block:
-                -   name:   ???
+                -   name:   Consultar la versión del nginx instalada
+                    register: version_previa_nginx
+                    
+                -   name:   Consultar el puerto
+                    register: puerto_previo_nginx
+                
+                -   name:   Consultar el document_root
+                    register: document_root_previo_nginx
 
+                -   name:   Detener el servicio
+                    when:   
+                        # Si la version de nginx instalada es distinta de la solicitada
+                        #  version_previa_nginx             nginx.version
+                        # O si el puerto ha cambiado
+                        #  puerto_previo_nginx              app.puerto
+                        # O si el document_root ha cambiado
+                        #  document_root_previo_nginx       app.document_root
+                
+            when: # nginx esté instalado y tiene servicio
+                -    # pre_instalado_nginx
+                -    # pre_creado_servicio_nginx
+            tags: 
+                - instalacion
+                - configuracion
+
+        -   name:       Asegurarme que no quedan versiones antiguas instaladas
+                        # Se encarga de deinstalar la versión previa, caso de que  esté instalada
+            when: 
+                # Si la version de nginx instalada es distinta de la solicitada
+                -  #pre_instalado_nginx
+                - #  version_previa_nginx    !=         nginx.version
+            tags: 
+                - instalacion
+                
         -   name:       Asegurarme que tal versión de nginx está instalada
-
+                        # Se encarga de instalar la nueva versión, caso de que no esté instalada
+            when: 
+                # Si la version de nginx instalada es distinta de la solicitada
+                # no pre_instalado_nginx O 
+                #  version_previa_nginx    !=         nginx.version
+            tags: 
+                - instalacion
+                
         -   name:       Asegurarme que el nginx tiene la configuración que quiero
-
+                        # Meter run fichero .conf
+            block: 
+                -   name:   Hacer backup 
+                -   name:   Asegurarme que la nueva configuración queda aplicada
+                    notify:     DESPLIEGUE_CAMBIADO
+            when:
+                        # O si el puerto ha cambiado
+                        #  puerto_previo_nginx              app.puerto
+                        # O si el document_root ha cambiado
+                        #  document_root_previo_nginx       app.document_root
+            tags: 
+                - despliegue # configuracion
+                
         -   name:       Asegurarme que tengo un servicio de nginx
-
+                    # Crear el servicio de nginx si es que no está ya creado
+            tags: 
+                - instalacion
+                
         -   name:       "Guardar en algún sitio la versión que ahora mismo estaba en funcionamiento : TAG de GIT"
+                        # Extraer esa info (tag de git o un backup completo) y guarlarla en un archivo
+            tags: 
+                - despliegue
+                - backup
 
         -   name:       Asegurarme que tengo en la carpeta de marras descargada la ultima version del repo de git de turno
-            notify:     CONTENIDO_APP_CAMBIADO
+                        # Extraer de git la version solicitada de la app
+            notify:     DESPLIEGUE_CAMBIADO
+            tags: 
+                - despliegue
+                
+        -   name:       Asegurarme que el servicio de nginx está levantado y activado
+                        # Habla por si solo!
+            tags:
+                - instalacion
+                - despliegue
+                - obligatorio
 
-        -   name:       Asegurarme que el servicio de nginx está levantado
+
 
     post_tasks:
         -   name:       Pruebas de humo
             block: 
                 -   name:   Asegurarme que la máquina tiene conectividad
-        
+                    tags:
+                        - pruebas
+
                 -   name:   Asegurarme que nginx está arriba
-        
+                    tags:
+                        - pruebas
+
                 -   name:   Asegurarme que nginx esta sirviendo la app
+                    tags:
+                        - pruebas
 
                 -   name:   Notificacion ok
+                    tags:
+                        - notificacion
             rescue:
                 -   name:   Notificacion error
+                    tags:
+                        - notificacion
+            tags:
+                - despliegue
+                - instalacion
             
     handlers:
         name:           Reinicio del servicio de nginx
         listen:
-                      - CONTENIDO_APP_CAMBIADO
+                      - DESPLIEGUE_CAMBIADO
 
 # Qué nombre damos a las tareas en ansible, VERBOS en imperativo? o en infinitivo. NO
 ## SIEMPRE RESPETANDO EL CONCEPTO DE IDEMPOTENCIA !
@@ -100,7 +220,7 @@ Podríamos crear un play DUMMY, con la estructura pero haga na' > NO ESTA MAL...
 DONE:
     - Estructura de tareas (play)
     - Variables previas que se me han ocurrido y su estructura
-    - Lógica del play ? 
+    - Lógica del play ?         SEGUIR ENTENDIENDO EL PLAYBOOK, que no es nada facil
         when
         loop
         tag
