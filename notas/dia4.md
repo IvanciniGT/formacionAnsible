@@ -124,3 +124,74 @@ Junto con una estructura de directorios compatible con POSIX
 Para poder conectar via ssh, la máquina hay que darla de alta en el knownhosts
 export ANSIBLE_HOST_KEY_CHECKING=False
 --ssh-common-args='-o StrictHostKeyChecking=no'
+
+# Inventarios dinámicos
+
+Podríamos hacer un programa en un lenguaje de programación
+que autoamticamente generase el inventario por nosotros.
+
+Eso es lo que entendemos por un inventario dinámico.
+
+Podemos hacerlo en:
+bash
+python <<<< 
+
+# Roles
+
+Es el equivalente en cualquier lenguaje de programación a UNA FUNCION, METODO, PROCEDIMIENTO, LIBRERIA
+
+Capacidad de reutilizar código ANSIBLE.
+
+# Cuando escribimos un Playbook>Play, que ponemos ahi?
+
+-   hosts:              x
+    order:              x
+    vars:               √
+    gather_facts:       x
+    tasks:              √
+    pre_tasks:          √
+    post_task:          √
+
+Cuáles de esas cosas serían las que yo querria meter en algo REUTILIZABLE? 
+
+    
+Nosotros vamos amontar un playbook
+Dentro de las tareas de ese playbook, llamaremos a UN ROLE
+
+En el playbook, es donde definiremos: 
+- hosts
+- order
+- gather_facts
+- tasks         >
+- pre_tasks     >
+- post_tasks    >       ROLE
+- handlers      >
+
+
+Los roles se pueden compartir por ejemplo, a través de ansible-galaxy
+
+Cualquier cosa que hicieramos en la empresa y que tuviera sentido reusarla en varios proyectos, 
+DEBERIA IR EN UN ROLE!
+NUNCA EN UN PLAYBOOK !
+
+## Creación de un role
+
+$ ansible-galaxy init NOMBRE:
+
+NOMBRE
+    ├── README.md           Descripcion del role... y cómo usarlo, requerimientos
+    ├── defaults            Variables QUE ME SUMINISTRARAN... y yo les doy por cortesía un valor por defecto
+    │   └── main.yml
+    ├── files               Otros ficheros que necesito que no son plantillas
+    ├── handlers
+    │   └── main.yml        Los handlers propios del rol
+    ├── meta                Datos descriptivos del role que irian a Ansible-Galaxy
+    │   └── main.yml
+    ├── tasks               Las tareas que va a hacer el rol
+    │   └── main.yml
+    ├── templates           Plantillas que usamos con el modulo "template"
+    ├── tests               Pruebas automatizadas que hacemos de que el role funciona
+    │   ├── inventory       Inventario de prueba
+    │   └── test.yml        Playbook de prueba
+    └── vars                Variables INTERNAS 
+        └── main.yml
