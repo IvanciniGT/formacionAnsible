@@ -34,7 +34,8 @@ Este role, nos permite:
 
 ## Requirements
 
-
+ssh-keyscan
+ssh-keygen
 
 ## Role Variables
 
@@ -43,6 +44,10 @@ Este role, nos permite:
 | `appendIfNotExists`   | Boolean | `False`           |
 | `regenerateIfChanged` | Boolean | `False`           |
 
+## Role Tags
+
+- knownhosts: Aplica a todas las tareas de este role
+- debug:      Activa o desactiva los mensajes por consola
 
 
 Dependencies

@@ -195,3 +195,37 @@ NOMBRE
     │   └── test.yml        Playbook de prueba
     └── vars                Variables INTERNAS 
         └── main.yml
+        
+        
+# Tareas de ansible en un play
+
+Inventario:
+    máquina 1: ssh
+
+- gather_facts
+- tarea 1   Copiar un archivo al remoto
+- tarea 2   Instalar via apt unos paquetes
+- tarea 3   Crear una carpeta
+
+## Cuántas conexiones ssh va a necesitar este play?  4
+
+Cada tarea que requiere conexión con un remoto, abre su propio ssh.
+
+## Qué pasa si una tarea tarda muuuuUUUUUUUuuucho tiempo en ejecutarse? 
+
+Timeout de ssh < UPS !!!!!! > Playbook se detiene, fallido... Y TODO A LA MIERDA
+
+Solución a este dilema? 
+    async: 
+            No mantengas la conexión abierta. 
+             - Abrela
+             - Lanza el comando
+             - Cierra, dejando el comando ejecutándose
+    pool: > Cada cuanto preguntas al remoto, a ver si la tarea ha terminado
+    
+Una tarea que lleve un async se ejecuta de forma ¡asíncrona!
+
+Qué significa eso? Que puedo lanzar en paralelo MUCHAS TAREAS !
+Eso lo consigo con pool: 0
+
+Y esto nos obliga posteriormente a meter una tarea de sincronización

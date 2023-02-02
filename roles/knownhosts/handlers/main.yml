@@ -1,2 +1,17 @@
----
-# handlers file for knownhosts
+-   name:        Notificar por consola que la huella ha sido generada para el servidor
+    debug:
+        msg: |
+                 NOTIFICACION: Huella generada con éxito para el host {{ inventory_hostname }} ({{ ansible_host }})
+    listen:
+               - NUEVO_SERVIDOR
+    tags:
+               - knownhosts
+
+-   name:        Notificar por consola que la huella ha sido regenerada para el servidor
+    debug:
+        msg: |
+                 NOTIFICACION: Huella regenerada con éxito para el host {{ inventory_hostname }} ({{ ansible_host }})
+    listen:
+               - NUEVA_HUELLA_PARA_SERVIDOR
+    tags:
+               - knownhosts

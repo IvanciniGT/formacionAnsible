@@ -1,1 +1,94 @@
----
+-   name:               Saber si el host está dado de alta en el known_hosts
+    shell:
+        command: >
+                        ssh-keygen -F {{ ansible_host }} | egrep ^[^#] | egrep ssh-rsa
+    register:               previo
+    delegate_to:            localhost
+    changed_when:           false
+    failed_when:            false
+    tags:
+        - knownhosts
+
+-   name:               Obtener la huella actual del host
+    shell:
+        command: >
+                        ssh-keyscan -H {{ ansible_host }} 2>/dev/null | grep ssh-rs
+    changed_when:           false
+    failed_when:            false
+    register:               actual
+    delegate_to:            localhost
+    tags:
+        - knownhosts
+
+-   name:               Mostrar las huellas del host
+    debug:
+        msg: |
+                        Host: {{ inventory_hostname }} ({{ ansible_host }})
+                            - Huella existente: {{ previo.stdout }}
+                            - Huella actual:    {{ actual.stdout }}
+    tags:
+        - knownhosts
+        - debug
+
+-   name:               Generar la huella si es solicitado
+    block:
+        -   name:       Detener la ejecución del Play
+            meta:       end_host
+            when:     
+                      - not appendIfNotExists #Si no me han pedido que genere huella
+
+        -   name:       Generar la huella
+            shell: 
+                cmd: >
+                        ssh-keyscan -H {{ ansible_host }} 2>/dev/null | grep ssh-rs >> ~/.ssh/known_hosts
+            # changed_when? Ya que el cambio es en local... y realmente no cambia nada en remoto
+            changed_when:   False
+            when:     
+                      - appendIfNotExists #Si me han pedido que genere huella
+            delegate_to:    localhost
+            notify:     NUEVO_SERVIDOR #Avisar de que tengo un nuevo servidor no reconocido previamente
+        
+        -   name:               Notificar por consola que la huella ha sido generada para el servidor
+            debug:
+                msg: |
+                        Huella generada con éxito
+            tags:
+                - knownhosts
+                - debug
+    when:
+                      - previo.rc > 0 # cuando no exista un valor `previo`
+    tags:
+        - knownhosts
+    
+-   name:               Si existe en el known_hosts
+    block:
+
+        -   name:       Detener la ejecución del Play
+            meta:       end_host
+            when:     
+                      - not regenerateIfChanged #Si no me han pedido que regenere huella
+
+        -   name:       Regenerar la huella
+            shell: 
+                cmd: >
+                        ssh-keygen -R {{ ansible_host }} &&
+                        ssh-keyscan -H {{ ansible_host }} 2>/dev/null | grep ssh-rs >> ~/.ssh/known_hosts
+            # changed_when? Ya que el cambio es en local... y realmente no cambia nada en remoto
+            changed_when:   False
+            when:     
+                      - regenerateIfChanged #Si me han pedido que regenere huella
+            delegate_to:    localhost
+            notify:     NUEVA_HUELLA_PARA_SERVIDOR #Avisar de que tengo un nuevo servidor no reconocido previamente
+
+        -   name:               Notificar por consola que la huella ha sido generada para el servidor
+            debug:
+                msg: |
+                        Huella regenerada con éxito
+            tags:
+                - knownhosts
+                - debug
+    when:
+                      - previo.rc == 0  # cuando si exista un valor `previo`
+                      - previo.stdout != actual.stdout # Si la huella ha cambiado
+    tags:
+        - knownhosts
