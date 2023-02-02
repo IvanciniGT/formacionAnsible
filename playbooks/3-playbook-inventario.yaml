@@ -1,0 +1,66 @@
+- 
+    hosts:  all         # En qué entornos queremos ejecutar el playbook....
+                        # Normalmente aqui se suele poner "all" = EN TODOS LOS ENTORNOS DEL INVENTARIO
+                        # Esto nos aporta flexibilidad.
+                        # Desde linea de comandos, al llamar al playbook, ya filtraremos sobre quien quiero ejecutarlo
+                        
+                        # Valores:
+                        # - all                 TODOS LOS ENTORNOS
+                        # - <hostname>          SOBRE ESE HOSTNAME
+                        # - server1:server10    TODOS LOS ENTORNOS CUYO NOMBRE ESTE EN ESE RANGO
+                        # - <groupname>         TODOS LOS ENTORNOS DE ESE GRUPO
+                        # - webservers          Todos los entornos del grupo webservers
+                        #   ESCENARIO 1
+                        #       inventario:
+                        #           webservers:
+                        #               produccion:
+                        #                   nginx.prod
+                        #               desa:
+                        #                   nginx.desa
+                        #   ESCENARIO 1
+                        #       inventario:
+                        #           webservers:
+                        #                   nginx.prod
+                        #                   nginx.desa
+                        #           produccion
+                        #                   nginx.prod
+                        #                   mariadb.prod
+                        # - webservers:!produccion          Todos los entornos del grupo webservers pero no EN PRODUCCION
+                        #       ESCENARIO 1: nginx.desa
+                        #       ESCENARIO 2: nginx.desa
+                        # - webservers:&produccion          Todos los entornos del grupo webservers y que también pertenezcan al grupo PRODUCCION
+                        #       ESCENARIO 1: nginx.prod     para eso ya habría puesto solo: produccion
+                        #       ESCENARIO 2: nginx.prod
+
+                        # localhost es una palabra especial en ANSIBLE.
+                        # El el único recurso donde ANSIBLE me permite trabajar sin necesidad de un fichero de inventario
+    # Orden en el que se ejecuta el playbooks sobre los inventarios seleccionados
+    #order: inventory # reversed_inventory | sorted | reversed_sorted | shuffle
+                                            # alfabeticamente           # Aleatorio
+    
+    #cluster de kubernetes: Statefulset : Despliegue en cluster de una app
+    # mariadb01
+    # mariadb02
+    # mariadb03
+    # mariadb04
+    
+    gather_facts: true
+
+    tasks:
+        -   name: Mostrar un mensaje por pantalla
+            debug:
+                msg: Soy el mensaje de la primera tarea!
+                
+        -   
+            name: Mostrar un segundo mensaje por pantalla
+            debug:
+                msg: Soy el mensaje de la segunda tarea!
+        
+        -   
+            debug:
+                msg: Soy el mensaje de la tercera tarea!
+            name: Mostrar un tercer mensaje por pantalla
+            
+        -   name: Mostrar los facts que ANSIBLE ha traido del entorno administrado
+            debug:
+                var: ansible_facts
