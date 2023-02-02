@@ -1,6 +1,6 @@
 -   name:               Saber si el host está dado de alta en el known_hosts
     shell:
-        command: >
+        cmd: >
                         ssh-keygen -F {{ ansible_host }} | egrep ^[^#] | egrep ssh-rsa
     register:               previo
     delegate_to:            localhost
@@ -11,7 +11,7 @@
 
 -   name:               Obtener la huella actual del host
     shell:
-        command: >
+        cmd: >
                         ssh-keyscan -H {{ ansible_host }} 2>/dev/null | grep ssh-rs
     changed_when:           false
     failed_when:            false
