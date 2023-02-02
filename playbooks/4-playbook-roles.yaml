@@ -1,0 +1,26 @@
+- 
+    hosts:  all 
+
+    gather_facts: false
+
+    tasks:
+        -   name: Mostrar un mensaje por pantalla
+            debug:
+                msg: Soy el mensaje de la primera tarea!
+        
+        -   name: Asegurar que la maquina está dada de alta en known_hosts
+            include_role:
+                name: knownhosts
+            vars: 
+                appendIfNotExists: True
+                regenerateIfChanged: False
+        
+        -   name: Recuperar los facts
+            setup:
+                gather_subset:
+                    - 'all'
+
+        
+        -   name: Mostrar los facts que ANSIBLE ha traido del entorno administrado
+            debug:
+                var: ansible_facts
