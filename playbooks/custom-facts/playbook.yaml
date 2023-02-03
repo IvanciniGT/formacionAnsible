@@ -45,6 +45,24 @@
                     become: true                                                # Ejecutar esto con sudo
                     vars:
                         mivariable: Vamos a tomar un rico café
+                -   name:   Generar un fichero dinámico desde plantilla
+                    template:
+                        src:    fact_bash.sh
+                        dest:   /etc/ansible/facts.d/bash.fact
+                        mode:   '0777'
+                        backup: true            
+                    become: true                                                # Ejecutar esto con sudo
+                    vars:
+                        mivariable: Vamos a tomar un rico café
+                -   name:   Generar un fichero dinámico desde plantilla
+                    template:
+                        src:    fact_python.py
+                        dest:   /etc/ansible/facts.d/python.fact
+                        mode:   '0777'
+                        backup: true            
+                    become: true                                                # Ejecutar esto con sudo
+                    vars:
+                        mivariable: Vamos a tomar un rico café
             tags:
                 - crear
 

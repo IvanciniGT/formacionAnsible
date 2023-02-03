@@ -195,7 +195,7 @@
                         # Cuando montamos un bucle, Ansible nos regala la variable {{ item }}
                 msg:    "Mostrar un mensaje: {{ item }}"
                 
-            #loop: # Necesitamos meter una lista
+            #loop: # Necesitamos meter una LISTA !
                 # Esto no es muy habitual
                 # - dato 1
                 # - dato 2

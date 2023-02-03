@@ -1,0 +1,3916 @@
+{
+    "tools_postgres_1": [
+        "tools_postgres_1"
+    ],
+    "b3410a0f8ab28": [
+        "entorno4"
+    ],
+    "61fd32df0d6af": [
+        "entorno2"
+    ],
+    "f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7": [
+        "entorno1"
+    ],
+    "image_ghcr.io/ansible/awx_devel:HEAD": [
+        "tools_awx_1"
+    ],
+    "f465b4e023490": [
+        "entorno1"
+    ],
+    "cd1c670351aa0": [
+        "entorno5"
+    ],
+    "cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6": [
+        "entorno5"
+    ],
+    "ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c": [
+        "tools_redis_1"
+    ],
+    "96ca3f3581fa6": [
+        "tools_awx_1"
+    ],
+    "ce350830e8c71": [
+        "tools_redis_1"
+    ],
+    "entorno3": [
+        "entorno3"
+    ],
+    "entorno2": [
+        "entorno2"
+    ],
+    "entorno1": [
+        "entorno1"
+    ],
+    "entorno5": [
+        "entorno5"
+    ],
+    "entorno4": [
+        "entorno4"
+    ],
+    "image_redis:latest": [
+        "tools_redis_1"
+    ],
+    "running": [
+        "entorno1",
+        "entorno2",
+        "entorno3",
+        "entorno4",
+        "entorno5",
+        "tools_awx_1",
+        "tools_redis_1",
+        "tools_postgres_1"
+    ],
+    "image_postgres:12": [
+        "tools_postgres_1"
+    ],
+    "b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c": [
+        "entorno4"
+    ],
+    "cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9": [
+        "tools_postgres_1"
+    ],
+    "cbf7e4efe8c53": [
+        "tools_postgres_1"
+    ],
+    "_meta": {
+        "hostvars": {
+            "tools_postgres_1": {
+                "docker_path": "docker-entrypoint.sh",
+                "docker_id": "cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 5041,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "2023-02-03T01:05:02.728516327Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T07:37:58.099061487Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "postgres",
+                    "-c",
+                    "log_destination=stderr",
+                    "-c",
+                    "log_min_messages=info",
+                    "-c",
+                    "log_min_duration_statement=1000",
+                    "-c",
+                    "max_connections=1024"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": [],
+                    "ExtraHosts": null,
+                    "PidsLimit": null,
+                    "DnsSearch": [],
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "_sources_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": [
+                        "tools_awx_db:/var/lib/postgresql/data:rw"
+                    ],
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": [],
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": [],
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/tools_postgres_1",
+                "docker_mounts": [
+                    {
+                        "RW": true,
+                        "Name": "tools_awx_db",
+                        "Propagation": "",
+                        "Destination": "/var/lib/postgresql/data",
+                        "Driver": "local",
+                        "Source": "/var/lib/docker/volumes/tools_awx_db/_data",
+                        "Mode": "rw",
+                        "Type": "volume"
+                    }
+                ],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/b96c7883b2a16bf8bcb9bf4d99bb10512ab1efa126cefa05106a8a4b77cbc676/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/b96c7883b2a16bf8bcb9bf4d99bb10512ab1efa126cefa05106a8a4b77cbc676/work",
+                        "LowerDir": "/var/lib/docker/overlay2/b96c7883b2a16bf8bcb9bf4d99bb10512ab1efa126cefa05106a8a4b77cbc676-init/diff:/var/lib/docker/overlay2/b392756eb01fe0213bd2edcb12687effb7301c0e386c04c65d66d70be11fc3bf/diff:/var/lib/docker/overlay2/45551b6be1baf31f4ae80cd4ed5886d46b875d586a8b18e01311e45228aed1bc/diff:/var/lib/docker/overlay2/7436f7c2bfc4576989ae088a7df02057b6861842c689f41a65394b56e649ccfb/diff:/var/lib/docker/overlay2/e20d315104114aff56661c0ca334de0107c0a2a8d27168e56c6e57b75cf4243b/diff:/var/lib/docker/overlay2/0196477e3ae40db70f1ac3f210744098e99c6b233b9bbb925c3303b7308898ff/diff:/var/lib/docker/overlay2/c5c210ca95d153e1c862a2d6429e94531e14fb1f463b64a65f4c7ef66501c9d1/diff:/var/lib/docker/overlay2/ec3fad1bd6a61511fb5b21b91ce65d092ed271eeb38fcbd71ba316cd2e5a65f3/diff:/var/lib/docker/overlay2/5b8764bb36b5f9d224b29e6364a87be5f61a80655dce8778832d0170779f3177/diff:/var/lib/docker/overlay2/6ce4fcc364c37d9b0f6a8ade60042216d4217b9a7a2d88b47731f0dec809d5af/diff:/var/lib/docker/overlay2/2f0c847af1eb3ab1ccc92c61a3c3ad45056de0402706baad298a096ce36a1f3f/diff:/var/lib/docker/overlay2/3419923221a2dc7193bc96230c92b8c1ccf73032d3fcb780bf25a5dcda571e19/diff:/var/lib/docker/overlay2/6f0acabd187b7b2635b48687894f66f663bda61d008a62eadcea63cc4fdd2df7/diff:/var/lib/docker/overlay2/83682df567b0821b07e1d785782acbbe9744bf316fbcc5fa5ead26efeeb0682d/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/b96c7883b2a16bf8bcb9bf4d99bb10512ab1efa126cefa05106a8a4b77cbc676/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:fb13287d5553362fca823933b281b7710aa48fe794bf7923ba0747394952d242",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "_sources_default": {
+                            "NetworkID": "976d209d9badbfc0d928bfc3c7c7d1461144e5cf9725107d9c512df77cf6bccb",
+                            "MacAddress": "02:42:ac:13:00:03",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "a32e1304900cb5e72a5f432bdf227ab9a7bf9f7e363b5804d51ae4236cbf1be5",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.19.0.3",
+                            "Gateway": "172.19.0.1",
+                            "Aliases": [
+                                "cbf7e4efe8c5",
+                                "postgres"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "c4279eccd21a5dc1f51707a99d72c2300680a7abd322ab203e1a675a6c912f87",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/c4279eccd21a",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "5432/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-02T21:43:24.183343181Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "postgres",
+                        "-c",
+                        "log_destination=stderr",
+                        "-c",
+                        "log_min_messages=info",
+                        "-c",
+                        "log_min_duration_statement=1000",
+                        "-c",
+                        "max_connections=1024"
+                    ],
+                    "Volumes": {
+                        "/var/lib/postgresql/data": {}
+                    },
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "postgres:12",
+                    "Hostname": "cbf7e4efe8c5",
+                    "StdinOnce": false,
+                    "StopSignal": "SIGINT",
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources",
+                        "com.docker.compose.service": "postgres",
+                        "com.docker.compose.config-hash": "aee7d58389c83c668210de31fc4ce3e0da94bafab0ac9f11fbd69460451faff8",
+                        "com.docker.compose.project": "_sources",
+                        "com.docker.compose.project.config_files": "tools/docker-compose/_sources/docker-compose.yml",
+                        "com.docker.compose.version": "1.29.2",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1"
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "POSTGRES_HOST_AUTH_METHOD=trust",
+                        "POSTGRES_USER=awx",
+                        "POSTGRES_DB=awx",
+                        "POSTGRES_PASSWORD=LzNvuGfeZYNtmoCXbdEy",
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/12/bin",
+                        "GOSU_VERSION=1.16",
+                        "LANG=en_US.utf8",
+                        "PG_MAJOR=12",
+                        "PG_VERSION=12.13-1.pgdg110+1",
+                        "PGDATA=/var/lib/postgresql/data"
+                    ],
+                    "ExposedPorts": {
+                        "5432/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": false,
+                    "Entrypoint": [
+                        "docker-entrypoint.sh"
+                    ],
+                    "AttachStdout": false,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9/cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9/hostname",
+                "docker_execids": null,
+                "docker_short_id": "cbf7e4efe8c53",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/cbf7e4efe8c530bb7dbd2162b4df2e17b66eb1d94117419097fab244b0c603d9/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "entorno3": {
+                "docker_path": "/usr/sbin/sshd",
+                "docker_id": "e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 32325,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "0001-01-01T00:00:00Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T10:13:26.507871654Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "-D"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": null,
+                    "ExtraHosts": [],
+                    "PidsLimit": null,
+                    "DnsSearch": null,
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "entornos_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": null,
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": null,
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": null,
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/entorno3",
+                "docker_mounts": [],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/92fb37bbaf0bdfd70f306cad9ce9aa86ae1d4f60ac7e17d0b3da14c780e87d07/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/92fb37bbaf0bdfd70f306cad9ce9aa86ae1d4f60ac7e17d0b3da14c780e87d07/work",
+                        "LowerDir": "/var/lib/docker/overlay2/92fb37bbaf0bdfd70f306cad9ce9aa86ae1d4f60ac7e17d0b3da14c780e87d07-init/diff:/var/lib/docker/overlay2/909c51d63aa2796f1a8937844694f1369343f8b9a61d080dcfb565a80a0a28b8/diff:/var/lib/docker/overlay2/26345ed678b446137d149ad7662f29760681c008a57a0cfb1d6bb4b00e17bcdd/diff:/var/lib/docker/overlay2/a57681390d1d3e997c73af79f91ca9e4fd9af1767a4691ca22947ff13864c682/diff:/var/lib/docker/overlay2/351cf70514a7985cd3b874b9cecf92743bd337c65a08debf6a00af978af2621f/diff:/var/lib/docker/overlay2/9036a7535f5091fc40622aceb894d66bffd53d758db9fc5de2c28806729cc315/diff:/var/lib/docker/overlay2/baf295dd9b2075f54458e98e8a12fc7ec4064d994282666d60d1c8478215ccae/diff:/var/lib/docker/overlay2/f7b65e650389e90bc25d6fef2db52cd9c205e4e7787f62fe312319804a884b0c/diff:/var/lib/docker/overlay2/be40500ce4d8776b6521a97a32e746010286f7586fe82b2aa912d0f2a94f8c1d/diff:/var/lib/docker/overlay2/1038ae97874c259691e17432d83f6cfb489b0e05e7cf8c8dc92d8c21e7268bae/diff:/var/lib/docker/overlay2/4249d8f29eff1baa799268e60ce4c47333bd6b5ffe0314f2a5dcf010f3f9730e/diff:/var/lib/docker/overlay2/988f6f669e2c95c3df5e6f2944d40fdfa7edb6f10f933daad16ec42a19313672/diff:/var/lib/docker/overlay2/c9c5d8923ce3a17939cfa1386cd0fb39076e5427f5a2f53e9bd2a376341cb7eb/diff:/var/lib/docker/overlay2/be7750b94afe9219eb05f5fe90f5c00018a777226bc87008b324a618fbe4e956/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/92fb37bbaf0bdfd70f306cad9ce9aa86ae1d4f60ac7e17d0b3da14c780e87d07/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "entornos_default": {
+                            "NetworkID": "cefbd6b220b75895388e28b342ba836a88f2149108589b5a219e18fc21160f0b",
+                            "MacAddress": "02:42:ac:12:00:03",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "52bd5211181729d719d3659d9f92c4293d8cd2549f2d25fc6c2a6f82359f6341",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.18.0.3",
+                            "Gateway": "172.18.0.1",
+                            "Aliases": [
+                                "entorno3",
+                                "entorno3",
+                                "e1956b7f38f0"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "5797ac4a89aace24ae5613666c0a95c77b81fc2751d1183903dae3d9d39881ed",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/5797ac4a89aa",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "22/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-03T10:13:25.193395108Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/sbin/sshd",
+                        "-D"
+                    ],
+                    "Volumes": null,
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "rastasheep/ubuntu-sshd",
+                    "Hostname": "e1956b7f38f0",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/entornos",
+                        "com.docker.compose.service": "entorno3",
+                        "com.docker.compose.config-hash": "6768bf467e5646808faf7d996ceb5f467d5d5e7407f27b5268f1f247cb47021d",
+                        "com.docker.compose.project": "entornos",
+                        "com.docker.compose.project.config_files": "/home/ubuntu/environment/curso/entornos/docker-compose.yaml",
+                        "com.docker.compose.version": "2.15.1",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1",
+                        "com.docker.compose.image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                        "com.docker.compose.depends_on": ""
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                    ],
+                    "ExposedPorts": {
+                        "22/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": true,
+                    "Entrypoint": null,
+                    "AttachStdout": true,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab/e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab/hostname",
+                "docker_execids": null,
+                "docker_short_id": "e1956b7f38f0b",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "entorno2": {
+                "docker_path": "/usr/sbin/sshd",
+                "docker_id": "61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 32515,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "0001-01-01T00:00:00Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T10:13:26.57970832Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "-D"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": null,
+                    "ExtraHosts": [],
+                    "PidsLimit": null,
+                    "DnsSearch": null,
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "entornos_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": null,
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": null,
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": null,
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/entorno2",
+                "docker_mounts": [],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/3fbac134b616dc9c6e28f7ed9fb1eb470e975d02d67f39c69393d26b9440fb02/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/3fbac134b616dc9c6e28f7ed9fb1eb470e975d02d67f39c69393d26b9440fb02/work",
+                        "LowerDir": "/var/lib/docker/overlay2/3fbac134b616dc9c6e28f7ed9fb1eb470e975d02d67f39c69393d26b9440fb02-init/diff:/var/lib/docker/overlay2/909c51d63aa2796f1a8937844694f1369343f8b9a61d080dcfb565a80a0a28b8/diff:/var/lib/docker/overlay2/26345ed678b446137d149ad7662f29760681c008a57a0cfb1d6bb4b00e17bcdd/diff:/var/lib/docker/overlay2/a57681390d1d3e997c73af79f91ca9e4fd9af1767a4691ca22947ff13864c682/diff:/var/lib/docker/overlay2/351cf70514a7985cd3b874b9cecf92743bd337c65a08debf6a00af978af2621f/diff:/var/lib/docker/overlay2/9036a7535f5091fc40622aceb894d66bffd53d758db9fc5de2c28806729cc315/diff:/var/lib/docker/overlay2/baf295dd9b2075f54458e98e8a12fc7ec4064d994282666d60d1c8478215ccae/diff:/var/lib/docker/overlay2/f7b65e650389e90bc25d6fef2db52cd9c205e4e7787f62fe312319804a884b0c/diff:/var/lib/docker/overlay2/be40500ce4d8776b6521a97a32e746010286f7586fe82b2aa912d0f2a94f8c1d/diff:/var/lib/docker/overlay2/1038ae97874c259691e17432d83f6cfb489b0e05e7cf8c8dc92d8c21e7268bae/diff:/var/lib/docker/overlay2/4249d8f29eff1baa799268e60ce4c47333bd6b5ffe0314f2a5dcf010f3f9730e/diff:/var/lib/docker/overlay2/988f6f669e2c95c3df5e6f2944d40fdfa7edb6f10f933daad16ec42a19313672/diff:/var/lib/docker/overlay2/c9c5d8923ce3a17939cfa1386cd0fb39076e5427f5a2f53e9bd2a376341cb7eb/diff:/var/lib/docker/overlay2/be7750b94afe9219eb05f5fe90f5c00018a777226bc87008b324a618fbe4e956/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/3fbac134b616dc9c6e28f7ed9fb1eb470e975d02d67f39c69393d26b9440fb02/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "entornos_default": {
+                            "NetworkID": "cefbd6b220b75895388e28b342ba836a88f2149108589b5a219e18fc21160f0b",
+                            "MacAddress": "02:42:ac:12:00:06",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "602784c8cb1cc38868646072b74d5ede950ed93fbe0fa6b530b2f9568196ce44",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.18.0.6",
+                            "Gateway": "172.18.0.1",
+                            "Aliases": [
+                                "entorno2",
+                                "entorno2",
+                                "61fd32df0d6a"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "b102b87026161fce5055d400c2a1e1fdf0fc70bbed625648b6b74a440dfa1677",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/b102b8702616",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "22/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-03T10:13:25.200056422Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/sbin/sshd",
+                        "-D"
+                    ],
+                    "Volumes": null,
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "rastasheep/ubuntu-sshd",
+                    "Hostname": "61fd32df0d6a",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/entornos",
+                        "com.docker.compose.service": "entorno2",
+                        "com.docker.compose.config-hash": "02463e20966903343e163ee65c9ac4169c6425458451be8cbcae1a0307f54ba2",
+                        "com.docker.compose.project": "entornos",
+                        "com.docker.compose.project.config_files": "/home/ubuntu/environment/curso/entornos/docker-compose.yaml",
+                        "com.docker.compose.version": "2.15.1",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1",
+                        "com.docker.compose.image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                        "com.docker.compose.depends_on": ""
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                    ],
+                    "ExposedPorts": {
+                        "22/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": true,
+                    "Entrypoint": null,
+                    "AttachStdout": true,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8/61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8/hostname",
+                "docker_execids": null,
+                "docker_short_id": "61fd32df0d6af",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "entorno1": {
+                "docker_path": "/usr/sbin/sshd",
+                "docker_id": "f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 32371,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "0001-01-01T00:00:00Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T10:13:27.503385018Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "-D"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": null,
+                    "ExtraHosts": [],
+                    "PidsLimit": null,
+                    "DnsSearch": null,
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "entornos_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": null,
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": null,
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": null,
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/entorno1",
+                "docker_mounts": [],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/c85c4533c3c822d5ffbdbe50dcfd7a782de67119cc55566960189dcc71b74444/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/c85c4533c3c822d5ffbdbe50dcfd7a782de67119cc55566960189dcc71b74444/work",
+                        "LowerDir": "/var/lib/docker/overlay2/c85c4533c3c822d5ffbdbe50dcfd7a782de67119cc55566960189dcc71b74444-init/diff:/var/lib/docker/overlay2/909c51d63aa2796f1a8937844694f1369343f8b9a61d080dcfb565a80a0a28b8/diff:/var/lib/docker/overlay2/26345ed678b446137d149ad7662f29760681c008a57a0cfb1d6bb4b00e17bcdd/diff:/var/lib/docker/overlay2/a57681390d1d3e997c73af79f91ca9e4fd9af1767a4691ca22947ff13864c682/diff:/var/lib/docker/overlay2/351cf70514a7985cd3b874b9cecf92743bd337c65a08debf6a00af978af2621f/diff:/var/lib/docker/overlay2/9036a7535f5091fc40622aceb894d66bffd53d758db9fc5de2c28806729cc315/diff:/var/lib/docker/overlay2/baf295dd9b2075f54458e98e8a12fc7ec4064d994282666d60d1c8478215ccae/diff:/var/lib/docker/overlay2/f7b65e650389e90bc25d6fef2db52cd9c205e4e7787f62fe312319804a884b0c/diff:/var/lib/docker/overlay2/be40500ce4d8776b6521a97a32e746010286f7586fe82b2aa912d0f2a94f8c1d/diff:/var/lib/docker/overlay2/1038ae97874c259691e17432d83f6cfb489b0e05e7cf8c8dc92d8c21e7268bae/diff:/var/lib/docker/overlay2/4249d8f29eff1baa799268e60ce4c47333bd6b5ffe0314f2a5dcf010f3f9730e/diff:/var/lib/docker/overlay2/988f6f669e2c95c3df5e6f2944d40fdfa7edb6f10f933daad16ec42a19313672/diff:/var/lib/docker/overlay2/c9c5d8923ce3a17939cfa1386cd0fb39076e5427f5a2f53e9bd2a376341cb7eb/diff:/var/lib/docker/overlay2/be7750b94afe9219eb05f5fe90f5c00018a777226bc87008b324a618fbe4e956/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/c85c4533c3c822d5ffbdbe50dcfd7a782de67119cc55566960189dcc71b74444/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "entornos_default": {
+                            "NetworkID": "cefbd6b220b75895388e28b342ba836a88f2149108589b5a219e18fc21160f0b",
+                            "MacAddress": "02:42:ac:12:00:04",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "db46e6947f5b0d40981bf118074aca90df9550e281f9ce0d8f513cc124f5f33c",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.18.0.4",
+                            "Gateway": "172.18.0.1",
+                            "Aliases": [
+                                "entorno1",
+                                "entorno1",
+                                "f465b4e02349"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "67ee33b42157580e3bd44f05f400add65edaf17fe7fe3c86a5eabec50f1a7e3a",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/67ee33b42157",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "22/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-03T10:13:25.212458501Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/sbin/sshd",
+                        "-D"
+                    ],
+                    "Volumes": null,
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "rastasheep/ubuntu-sshd",
+                    "Hostname": "f465b4e02349",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/entornos",
+                        "com.docker.compose.service": "entorno1",
+                        "com.docker.compose.config-hash": "b51d7e5e7827268dd06c4b44ed636abaff8a774efca717468ccbca239939b885",
+                        "com.docker.compose.project": "entornos",
+                        "com.docker.compose.project.config_files": "/home/ubuntu/environment/curso/entornos/docker-compose.yaml",
+                        "com.docker.compose.version": "2.15.1",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1",
+                        "com.docker.compose.image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                        "com.docker.compose.depends_on": ""
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                    ],
+                    "ExposedPorts": {
+                        "22/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": true,
+                    "Entrypoint": null,
+                    "AttachStdout": true,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7/f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7/hostname",
+                "docker_execids": null,
+                "docker_short_id": "f465b4e023490",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/f465b4e02349086c166eaa174c6b1ea408bcc8a97c93d49173abb158855908c7/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "tools_redis_1": {
+                "docker_path": "redis-server",
+                "docker_id": "ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 5019,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "2023-02-03T01:05:02.656607699Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T07:37:59.048183136Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "/usr/local/etc/redis/redis.conf"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": [],
+                    "ExtraHosts": null,
+                    "PidsLimit": null,
+                    "DnsSearch": [],
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "_sources_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": [
+                        "/home/ubuntu/environment/curso/awx/tools/redis/redis.conf:/usr/local/etc/redis/redis.conf:rw",
+                        "tools_redis_socket_1:/var/run/redis:rw"
+                    ],
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": [],
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": [],
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/tools_redis_1",
+                "docker_mounts": [
+                    {
+                        "RW": true,
+                        "Name": "01498d95e5bf451ffc59b5a1e347f0da66d16575abb7fb3da15b33bc592eb27d",
+                        "Propagation": "",
+                        "Destination": "/data",
+                        "Driver": "local",
+                        "Source": "/var/lib/docker/volumes/01498d95e5bf451ffc59b5a1e347f0da66d16575abb7fb3da15b33bc592eb27d/_data",
+                        "Mode": "",
+                        "Type": "volume"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/usr/local/etc/redis/redis.conf",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/redis/redis.conf",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Name": "tools_redis_socket_1",
+                        "Propagation": "",
+                        "Destination": "/var/run/redis",
+                        "Driver": "local",
+                        "Source": "/var/lib/docker/volumes/tools_redis_socket_1/_data",
+                        "Mode": "rw",
+                        "Type": "volume"
+                    }
+                ],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/555a27f33ac445ed2802bc2027a6e7837d77e3e763ecb66b2d9ef9a558a78515/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/555a27f33ac445ed2802bc2027a6e7837d77e3e763ecb66b2d9ef9a558a78515/work",
+                        "LowerDir": "/var/lib/docker/overlay2/555a27f33ac445ed2802bc2027a6e7837d77e3e763ecb66b2d9ef9a558a78515-init/diff:/var/lib/docker/overlay2/99c4d853c1db0ef62ce5208a0fbcd8734ba3b38bf37503dae9b7bc966c665f55/diff:/var/lib/docker/overlay2/bdba6cbfa31f678d338f49badb6c3d2ee1539b63f02f9c07d240940d4e13c493/diff:/var/lib/docker/overlay2/b823605ad6496d275d22f2d49c086d0654099851efa0c6c95c0d180ce8190321/diff:/var/lib/docker/overlay2/e9636eae62f971200ac545602425a35b349bb09531c96a17e1d9a8fb6c11d80b/diff:/var/lib/docker/overlay2/7893bc6f955d3aeeeb58350482e1a0fb58f3939d56e2d8f927e89f73fb1c597e/diff:/var/lib/docker/overlay2/83682df567b0821b07e1d785782acbbe9744bf316fbcc5fa5ead26efeeb0682d/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/555a27f33ac445ed2802bc2027a6e7837d77e3e763ecb66b2d9ef9a558a78515/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:888d403d53d87afca930f0c50e75495695631f1251ab583ab3fcb913bc00e78c",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "_sources_default": {
+                            "NetworkID": "976d209d9badbfc0d928bfc3c7c7d1461144e5cf9725107d9c512df77cf6bccb",
+                            "MacAddress": "02:42:ac:13:00:02",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "5c055492027fc14e4e3f0fbddb7deeb765a3d8b73c19fcc7c276dc95bcf0cb6b",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.19.0.2",
+                            "Gateway": "172.19.0.1",
+                            "Aliases": [
+                                "ce350830e8c7",
+                                "redis_1"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "b9291e6035e846483ad54cc40092733bdf26e9e92bd2a8c8f80220bf8ee341ad",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/b9291e6035e8",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "6379/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-02T21:43:24.191863164Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/local/etc/redis/redis.conf"
+                    ],
+                    "Volumes": {
+                        "/data": {},
+                        "/var/run/redis": {},
+                        "/usr/local/etc/redis/redis.conf": {}
+                    },
+                    "Domainname": "",
+                    "WorkingDir": "/data",
+                    "Image": "redis:latest",
+                    "Hostname": "ce350830e8c7",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources",
+                        "com.docker.compose.service": "redis_1",
+                        "com.docker.compose.config-hash": "f370dada63b28d6102fb4214c1e4adabb9c5b0cca0e9933141ff64290e049074",
+                        "com.docker.compose.project": "_sources",
+                        "com.docker.compose.project.config_files": "tools/docker-compose/_sources/docker-compose.yml",
+                        "com.docker.compose.version": "1.29.2",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1"
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "GOSU_VERSION=1.16",
+                        "REDIS_VERSION=7.0.8",
+                        "REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-7.0.8.tar.gz",
+                        "REDIS_DOWNLOAD_SHA=06a339e491306783dcf55b97f15a5dbcbdc01ccbde6dc23027c475cab735e914"
+                    ],
+                    "ExposedPorts": {
+                        "6379/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": false,
+                    "Entrypoint": [
+                        "redis-server"
+                    ],
+                    "AttachStdout": false,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c/ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c/hostname",
+                "docker_execids": null,
+                "docker_short_id": "ce350830e8c71",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/ce350830e8c71ca716dc19cce6a8515395ee79542ea6cbce74e28127e57c9c8c/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "entorno5": {
+                "docker_path": "/usr/sbin/sshd",
+                "docker_id": "cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 32453,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "0001-01-01T00:00:00Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T10:13:27.544493361Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "-D"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": null,
+                    "ExtraHosts": [],
+                    "PidsLimit": null,
+                    "DnsSearch": null,
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "entornos_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": null,
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": null,
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": null,
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/entorno5",
+                "docker_mounts": [],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/5b8ee86d5895741d43cf70263911425ed43f4bbe04d08e774cb81d1593b75dbf/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/5b8ee86d5895741d43cf70263911425ed43f4bbe04d08e774cb81d1593b75dbf/work",
+                        "LowerDir": "/var/lib/docker/overlay2/5b8ee86d5895741d43cf70263911425ed43f4bbe04d08e774cb81d1593b75dbf-init/diff:/var/lib/docker/overlay2/909c51d63aa2796f1a8937844694f1369343f8b9a61d080dcfb565a80a0a28b8/diff:/var/lib/docker/overlay2/26345ed678b446137d149ad7662f29760681c008a57a0cfb1d6bb4b00e17bcdd/diff:/var/lib/docker/overlay2/a57681390d1d3e997c73af79f91ca9e4fd9af1767a4691ca22947ff13864c682/diff:/var/lib/docker/overlay2/351cf70514a7985cd3b874b9cecf92743bd337c65a08debf6a00af978af2621f/diff:/var/lib/docker/overlay2/9036a7535f5091fc40622aceb894d66bffd53d758db9fc5de2c28806729cc315/diff:/var/lib/docker/overlay2/baf295dd9b2075f54458e98e8a12fc7ec4064d994282666d60d1c8478215ccae/diff:/var/lib/docker/overlay2/f7b65e650389e90bc25d6fef2db52cd9c205e4e7787f62fe312319804a884b0c/diff:/var/lib/docker/overlay2/be40500ce4d8776b6521a97a32e746010286f7586fe82b2aa912d0f2a94f8c1d/diff:/var/lib/docker/overlay2/1038ae97874c259691e17432d83f6cfb489b0e05e7cf8c8dc92d8c21e7268bae/diff:/var/lib/docker/overlay2/4249d8f29eff1baa799268e60ce4c47333bd6b5ffe0314f2a5dcf010f3f9730e/diff:/var/lib/docker/overlay2/988f6f669e2c95c3df5e6f2944d40fdfa7edb6f10f933daad16ec42a19313672/diff:/var/lib/docker/overlay2/c9c5d8923ce3a17939cfa1386cd0fb39076e5427f5a2f53e9bd2a376341cb7eb/diff:/var/lib/docker/overlay2/be7750b94afe9219eb05f5fe90f5c00018a777226bc87008b324a618fbe4e956/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/5b8ee86d5895741d43cf70263911425ed43f4bbe04d08e774cb81d1593b75dbf/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "entornos_default": {
+                            "NetworkID": "cefbd6b220b75895388e28b342ba836a88f2149108589b5a219e18fc21160f0b",
+                            "MacAddress": "02:42:ac:12:00:05",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "c18f146bd458e4c7c523d0475371855651ee3b7734c2fd247eb5cf44ad486e33",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.18.0.5",
+                            "Gateway": "172.18.0.1",
+                            "Aliases": [
+                                "entorno5",
+                                "entorno5",
+                                "cd1c670351aa"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "5149c39f209fc7fb805a8e0cb9797e1171d382a559ff8d4387559b5e2cea261d",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/5149c39f209f",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "22/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-03T10:13:25.185976019Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/sbin/sshd",
+                        "-D"
+                    ],
+                    "Volumes": null,
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "rastasheep/ubuntu-sshd",
+                    "Hostname": "cd1c670351aa",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/entornos",
+                        "com.docker.compose.service": "entorno5",
+                        "com.docker.compose.config-hash": "4a41f26e89f42ebbe1275e3795701a4616d73c82cd0f017b4a1c2b9279371f80",
+                        "com.docker.compose.project": "entornos",
+                        "com.docker.compose.project.config_files": "/home/ubuntu/environment/curso/entornos/docker-compose.yaml",
+                        "com.docker.compose.version": "2.15.1",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1",
+                        "com.docker.compose.image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                        "com.docker.compose.depends_on": ""
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                    ],
+                    "ExposedPorts": {
+                        "22/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": true,
+                    "Entrypoint": null,
+                    "AttachStdout": true,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6/cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6/hostname",
+                "docker_execids": null,
+                "docker_short_id": "cd1c670351aa0",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/cd1c670351aa05b695a38ff701b372383c4277819046ee2e0d12e10f655ac1a6/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "entorno4": {
+                "docker_path": "/usr/sbin/sshd",
+                "docker_id": "b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 32272,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "0001-01-01T00:00:00Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T10:13:27.38257218Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "-D"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": null,
+                    "ExtraHosts": [],
+                    "PidsLimit": null,
+                    "DnsSearch": null,
+                    "Privileged": false,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "entornos_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": [
+                        "/proc/bus",
+                        "/proc/fs",
+                        "/proc/irq",
+                        "/proc/sys",
+                        "/proc/sysrq-trigger"
+                    ],
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": null,
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": null,
+                    "CapDrop": null,
+                    "MaskedPaths": [
+                        "/proc/asound",
+                        "/proc/acpi",
+                        "/proc/kcore",
+                        "/proc/keys",
+                        "/proc/latency_stats",
+                        "/proc/timer_list",
+                        "/proc/timer_stats",
+                        "/proc/sched_debug",
+                        "/proc/scsi",
+                        "/sys/firmware"
+                    ],
+                    "DnsOptions": null,
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {},
+                    "SecurityOpt": null,
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/entorno4",
+                "docker_mounts": [],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/5f2850622f7fd685d4feed89cd6e93921db76f1117aaeaf8f60272cc9a66564b/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/5f2850622f7fd685d4feed89cd6e93921db76f1117aaeaf8f60272cc9a66564b/work",
+                        "LowerDir": "/var/lib/docker/overlay2/5f2850622f7fd685d4feed89cd6e93921db76f1117aaeaf8f60272cc9a66564b-init/diff:/var/lib/docker/overlay2/909c51d63aa2796f1a8937844694f1369343f8b9a61d080dcfb565a80a0a28b8/diff:/var/lib/docker/overlay2/26345ed678b446137d149ad7662f29760681c008a57a0cfb1d6bb4b00e17bcdd/diff:/var/lib/docker/overlay2/a57681390d1d3e997c73af79f91ca9e4fd9af1767a4691ca22947ff13864c682/diff:/var/lib/docker/overlay2/351cf70514a7985cd3b874b9cecf92743bd337c65a08debf6a00af978af2621f/diff:/var/lib/docker/overlay2/9036a7535f5091fc40622aceb894d66bffd53d758db9fc5de2c28806729cc315/diff:/var/lib/docker/overlay2/baf295dd9b2075f54458e98e8a12fc7ec4064d994282666d60d1c8478215ccae/diff:/var/lib/docker/overlay2/f7b65e650389e90bc25d6fef2db52cd9c205e4e7787f62fe312319804a884b0c/diff:/var/lib/docker/overlay2/be40500ce4d8776b6521a97a32e746010286f7586fe82b2aa912d0f2a94f8c1d/diff:/var/lib/docker/overlay2/1038ae97874c259691e17432d83f6cfb489b0e05e7cf8c8dc92d8c21e7268bae/diff:/var/lib/docker/overlay2/4249d8f29eff1baa799268e60ce4c47333bd6b5ffe0314f2a5dcf010f3f9730e/diff:/var/lib/docker/overlay2/988f6f669e2c95c3df5e6f2944d40fdfa7edb6f10f933daad16ec42a19313672/diff:/var/lib/docker/overlay2/c9c5d8923ce3a17939cfa1386cd0fb39076e5427f5a2f53e9bd2a376341cb7eb/diff:/var/lib/docker/overlay2/be7750b94afe9219eb05f5fe90f5c00018a777226bc87008b324a618fbe4e956/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/5f2850622f7fd685d4feed89cd6e93921db76f1117aaeaf8f60272cc9a66564b/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "entornos_default": {
+                            "NetworkID": "cefbd6b220b75895388e28b342ba836a88f2149108589b5a219e18fc21160f0b",
+                            "MacAddress": "02:42:ac:12:00:02",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": null,
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "922faa960100abb069c95fb1c8f2cd404549f67912f3fac41dbdcd087bd01115",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.18.0.2",
+                            "Gateway": "172.18.0.1",
+                            "Aliases": [
+                                "entorno4",
+                                "entorno4",
+                                "b3410a0f8ab2"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "fa846b8b3901dedab0185d7624ae7393edabef58b5895d83eb5fea94188568cc",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/fa846b8b3901",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "22/tcp": null
+                    }
+                },
+                "docker_created": "2023-02-03T10:13:25.189966104Z",
+                "docker_apparmorprofile": "docker-default",
+                "docker_hostspath": "/var/lib/docker/containers/b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c/hosts",
+                "docker_config": {
+                    "Tty": false,
+                    "Cmd": [
+                        "/usr/sbin/sshd",
+                        "-D"
+                    ],
+                    "Volumes": null,
+                    "Domainname": "",
+                    "WorkingDir": "",
+                    "Image": "rastasheep/ubuntu-sshd",
+                    "Hostname": "b3410a0f8ab2",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/entornos",
+                        "com.docker.compose.service": "entorno4",
+                        "com.docker.compose.config-hash": "b1c9ef363385c14e98751f484ec7d18ef4b807464f43d1fd6d551ace53ffedde",
+                        "com.docker.compose.project": "entornos",
+                        "com.docker.compose.project.config_files": "/home/ubuntu/environment/curso/entornos/docker-compose.yaml",
+                        "com.docker.compose.version": "2.15.1",
+                        "com.docker.compose.oneoff": "False",
+                        "com.docker.compose.container-number": "1",
+                        "com.docker.compose.image": "sha256:49533628fb371c9f1952c06cedf912c78a81fbe3914901334673c369376e077e",
+                        "com.docker.compose.depends_on": ""
+                    },
+                    "AttachStdin": false,
+                    "User": "",
+                    "Env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                    ],
+                    "ExposedPorts": {
+                        "22/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": true,
+                    "Entrypoint": null,
+                    "AttachStdout": true,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c/b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c/hostname",
+                "docker_execids": null,
+                "docker_short_id": "b3410a0f8ab28",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/b3410a0f8ab284faaac5f1b059bf206574bb66087210a18ef21c95863fffd63c/resolv.conf",
+                "docker_mountlabel": ""
+            },
+            "tools_awx_1": {
+                "docker_path": "/entrypoint.sh",
+                "docker_id": "96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96",
+                "docker_state": {
+                    "Status": "running",
+                    "Pid": 7590,
+                    "OOMKilled": false,
+                    "Dead": false,
+                    "Paused": false,
+                    "Running": true,
+                    "FinishedAt": "2023-02-03T01:05:12.462109918Z",
+                    "Restarting": false,
+                    "Error": "",
+                    "StartedAt": "2023-02-03T07:38:01.11472966Z",
+                    "ExitCode": 0
+                },
+                "docker_args": [
+                    "launch_awx.sh"
+                ],
+                "docker_hostconfig": {
+                    "CpuPeriod": 0,
+                    "MemorySwappiness": null,
+                    "ContainerIDFile": "",
+                    "KernelMemory": 0,
+                    "Memory": 0,
+                    "CpuQuota": 0,
+                    "UsernsMode": "",
+                    "AutoRemove": false,
+                    "BlkioDeviceReadIOps": null,
+                    "Dns": [],
+                    "ExtraHosts": null,
+                    "PidsLimit": null,
+                    "DnsSearch": [],
+                    "Privileged": true,
+                    "IOMaximumIOps": 0,
+                    "CgroupnsMode": "host",
+                    "CpuPercent": 0,
+                    "NanoCpus": 0,
+                    "Ulimits": null,
+                    "CpusetCpus": "",
+                    "CgroupParent": "",
+                    "BlkioWeight": 0,
+                    "MemorySwap": 0,
+                    "RestartPolicy": {
+                        "MaximumRetryCount": 0,
+                        "Name": ""
+                    },
+                    "OomScoreAdj": 0,
+                    "BlkioDeviceReadBps": null,
+                    "VolumeDriver": "",
+                    "ReadonlyRootfs": false,
+                    "CpuShares": 0,
+                    "PublishAllPorts": false,
+                    "MemoryReservation": 0,
+                    "BlkioWeightDevice": null,
+                    "ConsoleSize": [
+                        0,
+                        0
+                    ],
+                    "NetworkMode": "_sources_default",
+                    "BlkioDeviceWriteBps": null,
+                    "Isolation": "",
+                    "GroupAdd": null,
+                    "ReadonlyPaths": null,
+                    "CpuRealtimeRuntime": 0,
+                    "Devices": null,
+                    "BlkioDeviceWriteIOps": null,
+                    "Binds": [
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/websocket_secret.py:/etc/tower/conf.d/websocket_secret.py:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/SECRET_KEY:/etc/tower/SECRET_KEY:rw",
+                        "/home/ubuntu/.kube/config:/var/lib/awx/.kube/config:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/receptor/receptor-awx-1.conf:/etc/receptor/receptor.conf:rw",
+                        "/sys/fs/cgroup:/sys/fs/cgroup:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/database.py:/etc/tower/conf.d/database.py:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/local_settings.py:/etc/tower/conf.d/local_settings.py:rw",
+                        "tools_redis_socket_1:/var/run/redis:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/supervisor.conf:/etc/supervisord.conf:rw",
+                        "/home/ubuntu/environment/curso/awx:/awx_devel:rw",
+                        "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/receptor/receptor-awx-1.conf.lock:/etc/receptor/receptor.conf.lock:rw"
+                    ],
+                    "CpusetMems": "",
+                    "Cgroup": "",
+                    "UTSMode": "",
+                    "PidMode": "",
+                    "Runtime": "runc",
+                    "VolumesFrom": [],
+                    "CapDrop": null,
+                    "MaskedPaths": null,
+                    "DnsOptions": [],
+                    "ShmSize": 67108864,
+                    "Links": null,
+                    "CpuRealtimePeriod": 0,
+                    "IpcMode": "private",
+                    "DeviceRequests": null,
+                    "PortBindings": {
+                        "8888/tcp": [
+                            {
+                                "HostPort": "8888",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7938/tcp": [
+                            {
+                                "HostPort": "7938",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7985/tcp": [
+                            {
+                                "HostPort": "7985",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7980/tcp": [
+                            {
+                                "HostPort": "7980",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7914/tcp": [
+                            {
+                                "HostPort": "7914",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7936/tcp": [
+                            {
+                                "HostPort": "7936",
+                                "HostIp": ""
+                            }
+                        ],
+                        "3001/tcp": [
+                            {
+                                "HostPort": "3000",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7941/tcp": [
+                            {
+                                "HostPort": "7941",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7908/tcp": [
+                            {
+                                "HostPort": "7908",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7945/tcp": [
+                            {
+                                "HostPort": "7945",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7982/tcp": [
+                            {
+                                "HostPort": "7982",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7903/tcp": [
+                            {
+                                "HostPort": "7903",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7970/tcp": [
+                            {
+                                "HostPort": "7970",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7913/tcp": [
+                            {
+                                "HostPort": "7913",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7999/tcp": [
+                            {
+                                "HostPort": "7999",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7915/tcp": [
+                            {
+                                "HostPort": "7915",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7929/tcp": [
+                            {
+                                "HostPort": "7929",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7930/tcp": [
+                            {
+                                "HostPort": "7930",
+                                "HostIp": ""
+                            }
+                        ],
+                        "2222/tcp": [
+                            {
+                                "HostPort": "2222",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7940/tcp": [
+                            {
+                                "HostPort": "7940",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7976/tcp": [
+                            {
+                                "HostPort": "7976",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7900/tcp": [
+                            {
+                                "HostPort": "7900",
+                                "HostIp": ""
+                            }
+                        ],
+                        "8043/tcp": [
+                            {
+                                "HostPort": "8043",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7906/tcp": [
+                            {
+                                "HostPort": "7906",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7955/tcp": [
+                            {
+                                "HostPort": "7955",
+                                "HostIp": ""
+                            }
+                        ],
+                        "8013/tcp": [
+                            {
+                                "HostPort": "8013",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7899/tcp": [
+                            {
+                                "HostPort": "7899",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7901/tcp": [
+                            {
+                                "HostPort": "7901",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7968/tcp": [
+                            {
+                                "HostPort": "7968",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7922/tcp": [
+                            {
+                                "HostPort": "7922",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7927/tcp": [
+                            {
+                                "HostPort": "7927",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7967/tcp": [
+                            {
+                                "HostPort": "7967",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7963/tcp": [
+                            {
+                                "HostPort": "7963",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7916/tcp": [
+                            {
+                                "HostPort": "7916",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7928/tcp": [
+                            {
+                                "HostPort": "7928",
+                                "HostIp": ""
+                            }
+                        ],
+                        "6899/tcp": [
+                            {
+                                "HostPort": "6899",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7932/tcp": [
+                            {
+                                "HostPort": "7932",
+                                "HostIp": ""
+                            }
+                        ],
+                        "8080/tcp": [
+                            {
+                                "HostPort": "8080",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7995/tcp": [
+                            {
+                                "HostPort": "7995",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7954/tcp": [
+                            {
+                                "HostPort": "7954",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7993/tcp": [
+                            {
+                                "HostPort": "7993",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7946/tcp": [
+                            {
+                                "HostPort": "7946",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7948/tcp": [
+                            {
+                                "HostPort": "7948",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7974/tcp": [
+                            {
+                                "HostPort": "7974",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7966/tcp": [
+                            {
+                                "HostPort": "7966",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7952/tcp": [
+                            {
+                                "HostPort": "7952",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7991/tcp": [
+                            {
+                                "HostPort": "7991",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7910/tcp": [
+                            {
+                                "HostPort": "7910",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7905/tcp": [
+                            {
+                                "HostPort": "7905",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7943/tcp": [
+                            {
+                                "HostPort": "7943",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7989/tcp": [
+                            {
+                                "HostPort": "7989",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7925/tcp": [
+                            {
+                                "HostPort": "7925",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7986/tcp": [
+                            {
+                                "HostPort": "7986",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7947/tcp": [
+                            {
+                                "HostPort": "7947",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7997/tcp": [
+                            {
+                                "HostPort": "7997",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7937/tcp": [
+                            {
+                                "HostPort": "7937",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7981/tcp": [
+                            {
+                                "HostPort": "7981",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7971/tcp": [
+                            {
+                                "HostPort": "7971",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7902/tcp": [
+                            {
+                                "HostPort": "7902",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7942/tcp": [
+                            {
+                                "HostPort": "7942",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7958/tcp": [
+                            {
+                                "HostPort": "7958",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7939/tcp": [
+                            {
+                                "HostPort": "7939",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7990/tcp": [
+                            {
+                                "HostPort": "7990",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7953/tcp": [
+                            {
+                                "HostPort": "7953",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7944/tcp": [
+                            {
+                                "HostPort": "7944",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7909/tcp": [
+                            {
+                                "HostPort": "7909",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7959/tcp": [
+                            {
+                                "HostPort": "7959",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7984/tcp": [
+                            {
+                                "HostPort": "7984",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7920/tcp": [
+                            {
+                                "HostPort": "7920",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7960/tcp": [
+                            {
+                                "HostPort": "7960",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7998/tcp": [
+                            {
+                                "HostPort": "7998",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7912/tcp": [
+                            {
+                                "HostPort": "7912",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7977/tcp": [
+                            {
+                                "HostPort": "7977",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7935/tcp": [
+                            {
+                                "HostPort": "7935",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7934/tcp": [
+                            {
+                                "HostPort": "7934",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7907/tcp": [
+                            {
+                                "HostPort": "7907",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7931/tcp": [
+                            {
+                                "HostPort": "7931",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7921/tcp": [
+                            {
+                                "HostPort": "7921",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7983/tcp": [
+                            {
+                                "HostPort": "7983",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7978/tcp": [
+                            {
+                                "HostPort": "7978",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7965/tcp": [
+                            {
+                                "HostPort": "7965",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7933/tcp": [
+                            {
+                                "HostPort": "7933",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7961/tcp": [
+                            {
+                                "HostPort": "7961",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7919/tcp": [
+                            {
+                                "HostPort": "7919",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7917/tcp": [
+                            {
+                                "HostPort": "7917",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7994/tcp": [
+                            {
+                                "HostPort": "7994",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7923/tcp": [
+                            {
+                                "HostPort": "7923",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7964/tcp": [
+                            {
+                                "HostPort": "7964",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7972/tcp": [
+                            {
+                                "HostPort": "7972",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7926/tcp": [
+                            {
+                                "HostPort": "7926",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7979/tcp": [
+                            {
+                                "HostPort": "7979",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7962/tcp": [
+                            {
+                                "HostPort": "7962",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7969/tcp": [
+                            {
+                                "HostPort": "7969",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7950/tcp": [
+                            {
+                                "HostPort": "7950",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7975/tcp": [
+                            {
+                                "HostPort": "7975",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7924/tcp": [
+                            {
+                                "HostPort": "7924",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7973/tcp": [
+                            {
+                                "HostPort": "7973",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7918/tcp": [
+                            {
+                                "HostPort": "7918",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7996/tcp": [
+                            {
+                                "HostPort": "7996",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7992/tcp": [
+                            {
+                                "HostPort": "7992",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7904/tcp": [
+                            {
+                                "HostPort": "7904",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7987/tcp": [
+                            {
+                                "HostPort": "7987",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7988/tcp": [
+                            {
+                                "HostPort": "7988",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7911/tcp": [
+                            {
+                                "HostPort": "7911",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7951/tcp": [
+                            {
+                                "HostPort": "7951",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7957/tcp": [
+                            {
+                                "HostPort": "7957",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7956/tcp": [
+                            {
+                                "HostPort": "7956",
+                                "HostIp": ""
+                            }
+                        ],
+                        "7949/tcp": [
+                            {
+                                "HostPort": "7949",
+                                "HostIp": ""
+                            }
+                        ]
+                    },
+                    "SecurityOpt": [
+                        "label=disable"
+                    ],
+                    "CapAdd": null,
+                    "CpuCount": 0,
+                    "DeviceCgroupRules": null,
+                    "KernelMemoryTCP": 0,
+                    "OomKillDisable": false,
+                    "LogConfig": {
+                        "Config": {},
+                        "Type": "json-file"
+                    },
+                    "IOMaximumBandwidth": 0
+                },
+                "docker_name": "/tools_awx_1",
+                "docker_mounts": [
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/awx_devel",
+                        "Source": "/home/ubuntu/environment/curso/awx",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/receptor/receptor.conf",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/receptor/receptor-awx-1.conf",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/receptor/receptor.conf.lock",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/receptor/receptor-awx-1.conf.lock",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/tower/SECRET_KEY",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/SECRET_KEY",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/tower/conf.d/database.py",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/database.py",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/tower/conf.d/local_settings.py",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/local_settings.py",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/sys/fs/cgroup",
+                        "Source": "/sys/fs/cgroup",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Name": "tools_redis_socket_1",
+                        "Propagation": "",
+                        "Destination": "/var/run/redis",
+                        "Driver": "local",
+                        "Source": "/var/lib/docker/volumes/tools_redis_socket_1/_data",
+                        "Mode": "rw",
+                        "Type": "volume"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/supervisord.conf",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/supervisor.conf",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/etc/tower/conf.d/websocket_secret.py",
+                        "Source": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources/websocket_secret.py",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    },
+                    {
+                        "RW": true,
+                        "Propagation": "rprivate",
+                        "Destination": "/var/lib/awx/.kube/config",
+                        "Source": "/home/ubuntu/.kube/config",
+                        "Mode": "rw",
+                        "Type": "bind"
+                    }
+                ],
+                "docker_graphdriver": {
+                    "Data": {
+                        "MergedDir": "/var/lib/docker/overlay2/42beac1e8787cf2e2c33f59410d1caa67e943c1e0ba29d30577a78b73277ff3a/merged",
+                        "WorkDir": "/var/lib/docker/overlay2/42beac1e8787cf2e2c33f59410d1caa67e943c1e0ba29d30577a78b73277ff3a/work",
+                        "LowerDir": "/var/lib/docker/overlay2/42beac1e8787cf2e2c33f59410d1caa67e943c1e0ba29d30577a78b73277ff3a-init/diff:/var/lib/docker/overlay2/oz67drz68f473nlqrvu1scm4b/diff:/var/lib/docker/overlay2/44qky19xo4icw1x50wam8t8mp/diff:/var/lib/docker/overlay2/x38dhhv5kskzpqzjh0qzo4znz/diff:/var/lib/docker/overlay2/1qitzcs24fpatkp64mr1msbuv/diff:/var/lib/docker/overlay2/yi8k4f00cmizj26nyuc43rv62/diff:/var/lib/docker/overlay2/wagkvknz8c9c54e3g2w3qott2/diff:/var/lib/docker/overlay2/cg144s63gy0tcg5836un9be6x/diff:/var/lib/docker/overlay2/0lz2naa0cozdup5bxyp0nm8vx/diff:/var/lib/docker/overlay2/w4h3c1q4vq0sufr6fu1tsg50m/diff:/var/lib/docker/overlay2/iacbmjz8oco2n6bxp0og5pyxb/diff:/var/lib/docker/overlay2/yutymykzpdl6er0qb41on2uiu/diff:/var/lib/docker/overlay2/7jmagytf33ndqxxotgihk7cy3/diff:/var/lib/docker/overlay2/m9og8tva4sax8fv2z39mdl754/diff:/var/lib/docker/overlay2/bp5v2fjge1d8cx9khjbgpa8jc/diff:/var/lib/docker/overlay2/kar4g7aabnfr1schw7457v5g6/diff:/var/lib/docker/overlay2/ls5e0r57eosj2rwvwel1sf35x/diff:/var/lib/docker/overlay2/9lvo7163qg3ymfqk5jc8tgsxd/diff:/var/lib/docker/overlay2/xhvpnvtrn7ht0jzub7n0wtmav/diff:/var/lib/docker/overlay2/j80rg5ep9khlkc1kxuwzko0ad/diff:/var/lib/docker/overlay2/ibr3lrv2kiquj87gqyz2x9i9c/diff:/var/lib/docker/overlay2/wmpgihajrvs5oixk2n5gw52h7/diff:/var/lib/docker/overlay2/le97qn2po7b69568ubx1u3e2l/diff:/var/lib/docker/overlay2/kneukgsmlrv1qsdwp9s8i3vnd/diff:/var/lib/docker/overlay2/33msx8g9w12wxz5kxbfol6p3z/diff:/var/lib/docker/overlay2/5obuz9cu9cimqg8vqeftyi9mu/diff:/var/lib/docker/overlay2/p8hh58m30lrezwbdejla604bn/diff:/var/lib/docker/overlay2/ussnj2fqcexuhhqlltzx41awm/diff:/var/lib/docker/overlay2/n3h2961kq970nei0oevykpt1c/diff:/var/lib/docker/overlay2/iu7dhbx9bdub1d9zbh3nai8o9/diff:/var/lib/docker/overlay2/2jd0p9jvo8podseaa6dkrmobe/diff:/var/lib/docker/overlay2/nm8244cah889vimtx695t9e40/diff:/var/lib/docker/overlay2/302649b08c94af6f7e19638124958360fbedcd8466bd3c4893369b102c33c4b9/diff",
+                        "UpperDir": "/var/lib/docker/overlay2/42beac1e8787cf2e2c33f59410d1caa67e943c1e0ba29d30577a78b73277ff3a/diff"
+                    },
+                    "Name": "overlay2"
+                },
+                "ansible_ssh_port": 0,
+                "docker_image": "sha256:d20b110bd3d0303eefa55839b8ff91409c80b265734281b8163cd3a1b1d31a18",
+                "docker_networksettings": {
+                    "Bridge": "",
+                    "Networks": {
+                        "_sources_default": {
+                            "NetworkID": "976d209d9badbfc0d928bfc3c7c7d1461144e5cf9725107d9c512df77cf6bccb",
+                            "MacAddress": "02:42:ac:13:00:04",
+                            "GlobalIPv6PrefixLen": 0,
+                            "Links": [
+                                "tools_postgres_1:postgres",
+                                "tools_postgres_1:tools_postgres_1",
+                                "tools_redis_1:redis_1",
+                                "tools_redis_1:tools_redis_1"
+                            ],
+                            "GlobalIPv6Address": "",
+                            "IPv6Gateway": "",
+                            "DriverOpts": null,
+                            "IPAMConfig": null,
+                            "EndpointID": "b0e30e0bf5aeb68c719078d97b1a306255a8d982ed17bd5573db3e75f62f34a6",
+                            "IPPrefixLen": 16,
+                            "IPAddress": "172.19.0.4",
+                            "Gateway": "172.19.0.1",
+                            "Aliases": [
+                                "96ca3f3581fa",
+                                "awx_1"
+                            ]
+                        }
+                    },
+                    "SecondaryIPv6Addresses": null,
+                    "LinkLocalIPv6Address": "",
+                    "HairpinMode": false,
+                    "IPv6Gateway": "",
+                    "SecondaryIPAddresses": null,
+                    "SandboxID": "ed6bfe5d8e8d1110f343835246ba5ed89f5842a000d3320ad6db4cc3402285a3",
+                    "MacAddress": "",
+                    "GlobalIPv6Address": "",
+                    "Gateway": "",
+                    "LinkLocalIPv6PrefixLen": 0,
+                    "EndpointID": "",
+                    "SandboxKey": "/var/run/docker/netns/ed6bfe5d8e8d",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPPrefixLen": 0,
+                    "IPAddress": "",
+                    "Ports": {
+                        "8888/tcp": [
+                            {
+                                "HostPort": "8888",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "8888",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7938/tcp": [
+                            {
+                                "HostPort": "7938",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7938",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7985/tcp": [
+                            {
+                                "HostPort": "7985",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7985",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7980/tcp": [
+                            {
+                                "HostPort": "7980",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7980",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7914/tcp": [
+                            {
+                                "HostPort": "7914",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7914",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7936/tcp": [
+                            {
+                                "HostPort": "7936",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7936",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "3001/tcp": [
+                            {
+                                "HostPort": "3000",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "3000",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7941/tcp": [
+                            {
+                                "HostPort": "7941",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7941",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7908/tcp": [
+                            {
+                                "HostPort": "7908",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7908",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7945/tcp": [
+                            {
+                                "HostPort": "7945",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7945",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7982/tcp": [
+                            {
+                                "HostPort": "7982",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7982",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7903/tcp": [
+                            {
+                                "HostPort": "7903",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7903",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7970/tcp": [
+                            {
+                                "HostPort": "7970",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7970",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7913/tcp": [
+                            {
+                                "HostPort": "7913",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7913",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7999/tcp": [
+                            {
+                                "HostPort": "7999",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7999",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7915/tcp": [
+                            {
+                                "HostPort": "7915",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7915",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7929/tcp": [
+                            {
+                                "HostPort": "7929",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7929",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7930/tcp": [
+                            {
+                                "HostPort": "7930",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7930",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "2222/tcp": [
+                            {
+                                "HostPort": "2222",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "2222",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7940/tcp": [
+                            {
+                                "HostPort": "7940",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7940",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7976/tcp": [
+                            {
+                                "HostPort": "7976",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7976",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7900/tcp": [
+                            {
+                                "HostPort": "7900",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7900",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "8043/tcp": [
+                            {
+                                "HostPort": "8043",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "8043",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7906/tcp": [
+                            {
+                                "HostPort": "7906",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7906",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7955/tcp": [
+                            {
+                                "HostPort": "7955",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7955",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "8013/tcp": [
+                            {
+                                "HostPort": "8013",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "8013",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7899/tcp": [
+                            {
+                                "HostPort": "7899",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7899",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7901/tcp": [
+                            {
+                                "HostPort": "7901",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7901",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7968/tcp": [
+                            {
+                                "HostPort": "7968",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7968",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7922/tcp": [
+                            {
+                                "HostPort": "7922",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7922",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7927/tcp": [
+                            {
+                                "HostPort": "7927",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7927",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7967/tcp": [
+                            {
+                                "HostPort": "7967",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7967",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7963/tcp": [
+                            {
+                                "HostPort": "7963",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7963",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7916/tcp": [
+                            {
+                                "HostPort": "7916",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7916",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7928/tcp": [
+                            {
+                                "HostPort": "7928",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7928",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "6899/tcp": [
+                            {
+                                "HostPort": "6899",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "6899",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7932/tcp": [
+                            {
+                                "HostPort": "7932",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7932",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "8080/tcp": [
+                            {
+                                "HostPort": "8080",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "8080",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7995/tcp": [
+                            {
+                                "HostPort": "7995",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7995",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7954/tcp": [
+                            {
+                                "HostPort": "7954",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7954",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7993/tcp": [
+                            {
+                                "HostPort": "7993",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7993",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7946/tcp": [
+                            {
+                                "HostPort": "7946",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7946",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7948/tcp": [
+                            {
+                                "HostPort": "7948",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7948",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7974/tcp": [
+                            {
+                                "HostPort": "7974",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7974",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7966/tcp": [
+                            {
+                                "HostPort": "7966",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7966",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7952/tcp": [
+                            {
+                                "HostPort": "7952",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7952",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7991/tcp": [
+                            {
+                                "HostPort": "7991",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7991",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7910/tcp": [
+                            {
+                                "HostPort": "7910",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7910",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7905/tcp": [
+                            {
+                                "HostPort": "7905",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7905",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7943/tcp": [
+                            {
+                                "HostPort": "7943",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7943",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7989/tcp": [
+                            {
+                                "HostPort": "7989",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7989",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7925/tcp": [
+                            {
+                                "HostPort": "7925",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7925",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7986/tcp": [
+                            {
+                                "HostPort": "7986",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7986",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7947/tcp": [
+                            {
+                                "HostPort": "7947",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7947",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7997/tcp": [
+                            {
+                                "HostPort": "7997",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7997",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7937/tcp": [
+                            {
+                                "HostPort": "7937",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7937",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7981/tcp": [
+                            {
+                                "HostPort": "7981",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7981",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7971/tcp": [
+                            {
+                                "HostPort": "7971",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7971",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7902/tcp": [
+                            {
+                                "HostPort": "7902",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7902",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7942/tcp": [
+                            {
+                                "HostPort": "7942",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7942",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7958/tcp": [
+                            {
+                                "HostPort": "7958",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7958",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7939/tcp": [
+                            {
+                                "HostPort": "7939",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7939",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7990/tcp": [
+                            {
+                                "HostPort": "7990",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7990",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7953/tcp": [
+                            {
+                                "HostPort": "7953",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7953",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7944/tcp": [
+                            {
+                                "HostPort": "7944",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7944",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7909/tcp": [
+                            {
+                                "HostPort": "7909",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7909",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7959/tcp": [
+                            {
+                                "HostPort": "7959",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7959",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7984/tcp": [
+                            {
+                                "HostPort": "7984",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7984",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7920/tcp": [
+                            {
+                                "HostPort": "7920",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7920",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7960/tcp": [
+                            {
+                                "HostPort": "7960",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7960",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7998/tcp": [
+                            {
+                                "HostPort": "7998",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7998",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7912/tcp": [
+                            {
+                                "HostPort": "7912",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7912",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7977/tcp": [
+                            {
+                                "HostPort": "7977",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7977",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7935/tcp": [
+                            {
+                                "HostPort": "7935",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7935",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7934/tcp": [
+                            {
+                                "HostPort": "7934",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7934",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7907/tcp": [
+                            {
+                                "HostPort": "7907",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7907",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7931/tcp": [
+                            {
+                                "HostPort": "7931",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7931",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7921/tcp": [
+                            {
+                                "HostPort": "7921",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7921",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7983/tcp": [
+                            {
+                                "HostPort": "7983",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7983",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7978/tcp": [
+                            {
+                                "HostPort": "7978",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7978",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7965/tcp": [
+                            {
+                                "HostPort": "7965",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7965",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7933/tcp": [
+                            {
+                                "HostPort": "7933",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7933",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "22/tcp": null,
+                        "7961/tcp": [
+                            {
+                                "HostPort": "7961",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7961",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7919/tcp": [
+                            {
+                                "HostPort": "7919",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7919",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7917/tcp": [
+                            {
+                                "HostPort": "7917",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7917",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7994/tcp": [
+                            {
+                                "HostPort": "7994",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7994",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7923/tcp": [
+                            {
+                                "HostPort": "7923",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7923",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7964/tcp": [
+                            {
+                                "HostPort": "7964",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7964",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7972/tcp": [
+                            {
+                                "HostPort": "7972",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7972",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7926/tcp": [
+                            {
+                                "HostPort": "7926",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7926",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7979/tcp": [
+                            {
+                                "HostPort": "7979",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7979",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7962/tcp": [
+                            {
+                                "HostPort": "7962",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7962",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7969/tcp": [
+                            {
+                                "HostPort": "7969",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7969",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7950/tcp": [
+                            {
+                                "HostPort": "7950",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7950",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7975/tcp": [
+                            {
+                                "HostPort": "7975",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7975",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7924/tcp": [
+                            {
+                                "HostPort": "7924",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7924",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7973/tcp": [
+                            {
+                                "HostPort": "7973",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7973",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7918/tcp": [
+                            {
+                                "HostPort": "7918",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7918",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7996/tcp": [
+                            {
+                                "HostPort": "7996",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7996",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7992/tcp": [
+                            {
+                                "HostPort": "7992",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7992",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7904/tcp": [
+                            {
+                                "HostPort": "7904",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7904",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7987/tcp": [
+                            {
+                                "HostPort": "7987",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7987",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7988/tcp": [
+                            {
+                                "HostPort": "7988",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7988",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7911/tcp": [
+                            {
+                                "HostPort": "7911",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7911",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7951/tcp": [
+                            {
+                                "HostPort": "7951",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7951",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7957/tcp": [
+                            {
+                                "HostPort": "7957",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7957",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7956/tcp": [
+                            {
+                                "HostPort": "7956",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7956",
+                                "HostIp": "::"
+                            }
+                        ],
+                        "7949/tcp": [
+                            {
+                                "HostPort": "7949",
+                                "HostIp": "0.0.0.0"
+                            },
+                            {
+                                "HostPort": "7949",
+                                "HostIp": "::"
+                            }
+                        ]
+                    }
+                },
+                "docker_created": "2023-02-02T21:43:27.399829912Z",
+                "docker_apparmorprofile": "unconfined",
+                "docker_hostspath": "/var/lib/docker/containers/96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96/hosts",
+                "docker_config": {
+                    "Tty": true,
+                    "Cmd": [
+                        "launch_awx.sh"
+                    ],
+                    "Volumes": {
+                        "/etc/tower/conf.d/database.py": {},
+                        "/etc/tower/conf.d/websocket_secret.py": {},
+                        "/etc/supervisord.conf": {},
+                        "/etc/receptor/receptor.conf": {},
+                        "/sys/fs/cgroup": {},
+                        "/etc/tower/conf.d/local_settings.py": {},
+                        "/var/lib/awx/.kube/config": {},
+                        "/etc/tower/SECRET_KEY": {},
+                        "/etc/receptor/receptor.conf.lock": {},
+                        "/awx_devel": {},
+                        "/var/run/redis": {}
+                    },
+                    "Domainname": "",
+                    "WorkingDir": "/awx_devel",
+                    "Image": "ghcr.io/ansible/awx_devel:HEAD",
+                    "Hostname": "awx_1",
+                    "StdinOnce": false,
+                    "Labels": {
+                        "com.docker.compose.project.working_dir": "/home/ubuntu/environment/curso/awx/tools/docker-compose/_sources",
+                        "com.docker.compose.service": "awx_1",
+                        "com.docker.compose.config-hash": "2e98c62e9eef6eb6c1065f204189b4fe7725d3a1efcf8525744e22561f48bf1e",
+                        "com.docker.compose.project": "_sources",
+                        "com.docker.compose.project.config_files": "tools/docker-compose/_sources/docker-compose.yml",
+                        "com.docker.compose.version": "1.29.2",
+                        "org.label-schema.schema-version": "1.0",
+                        "org.label-schema.build-date": "20230125",
+                        "com.docker.compose.oneoff": "False",
+                        "org.label-schema.name": "CentOS Stream 9 Base Image",
+                        "org.label-schema.vendor": "CentOS",
+                        "com.docker.compose.container-number": "1",
+                        "io.buildah.version": "1.19.8",
+                        "org.label-schema.license": "GPLv2"
+                    },
+                    "AttachStdin": false,
+                    "User": "1000",
+                    "Env": [
+                        "OS= Operating System: Ubuntu 18.04.6 LTS",
+                        "SDB_HOST=0.0.0.0",
+                        "SDB_PORT=7899",
+                        "AWX_GROUP_QUEUES=tower",
+                        "MAIN_NODE_TYPE=hybrid",
+                        "RECEPTORCTL_SOCKET=/var/run/awx-receptor/receptor.sock",
+                        "CONTROL_PLANE_NODE_COUNT=1",
+                        "EXECUTION_NODE_COUNT=0",
+                        "AWX_LOGGING_MODE=stdout",
+                        "DJANGO_SUPERUSER_PASSWORD=WlmdxbsrvejcgBKYtjeI",
+                        "RUN_MIGRATIONS=1",
+                        "PATH=/var/lib/awx/venv/awx/bin/:/usr/pgsql-12/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "LANG=en_US.UTF-8",
+                        "LANGUAGE=en_US:en",
+                        "LC_ALL=en_US.UTF-8",
+                        "_CONTAINERS_USERNS_CONFIGURED=",
+                        "HOME=/var/lib/awx"
+                    ],
+                    "ExposedPorts": {
+                        "8888/tcp": {},
+                        "7938/tcp": {},
+                        "7985/tcp": {},
+                        "7980/tcp": {},
+                        "7914/tcp": {},
+                        "7936/tcp": {},
+                        "3001/tcp": {},
+                        "7941/tcp": {},
+                        "7908/tcp": {},
+                        "7945/tcp": {},
+                        "7982/tcp": {},
+                        "7903/tcp": {},
+                        "7970/tcp": {},
+                        "7913/tcp": {},
+                        "7999/tcp": {},
+                        "7915/tcp": {},
+                        "7929/tcp": {},
+                        "7930/tcp": {},
+                        "2222/tcp": {},
+                        "7940/tcp": {},
+                        "7976/tcp": {},
+                        "7900/tcp": {},
+                        "8043/tcp": {},
+                        "7906/tcp": {},
+                        "7955/tcp": {},
+                        "8013/tcp": {},
+                        "7899/tcp": {},
+                        "7901/tcp": {},
+                        "7968/tcp": {},
+                        "7922/tcp": {},
+                        "7927/tcp": {},
+                        "7967/tcp": {},
+                        "7963/tcp": {},
+                        "7916/tcp": {},
+                        "7928/tcp": {},
+                        "6899/tcp": {},
+                        "7932/tcp": {},
+                        "8080/tcp": {},
+                        "7995/tcp": {},
+                        "7954/tcp": {},
+                        "7993/tcp": {},
+                        "7946/tcp": {},
+                        "7948/tcp": {},
+                        "7974/tcp": {},
+                        "7966/tcp": {},
+                        "7952/tcp": {},
+                        "7991/tcp": {},
+                        "7910/tcp": {},
+                        "7905/tcp": {},
+                        "7943/tcp": {},
+                        "7989/tcp": {},
+                        "7925/tcp": {},
+                        "7986/tcp": {},
+                        "7947/tcp": {},
+                        "7997/tcp": {},
+                        "7937/tcp": {},
+                        "7981/tcp": {},
+                        "7971/tcp": {},
+                        "7902/tcp": {},
+                        "7942/tcp": {},
+                        "7958/tcp": {},
+                        "7939/tcp": {},
+                        "7990/tcp": {},
+                        "7953/tcp": {},
+                        "7944/tcp": {},
+                        "7909/tcp": {},
+                        "7959/tcp": {},
+                        "7984/tcp": {},
+                        "7920/tcp": {},
+                        "7960/tcp": {},
+                        "7998/tcp": {},
+                        "7912/tcp": {},
+                        "7977/tcp": {},
+                        "7935/tcp": {},
+                        "7934/tcp": {},
+                        "7907/tcp": {},
+                        "7931/tcp": {},
+                        "7921/tcp": {},
+                        "7983/tcp": {},
+                        "7978/tcp": {},
+                        "7965/tcp": {},
+                        "7933/tcp": {},
+                        "22/tcp": {},
+                        "7961/tcp": {},
+                        "7919/tcp": {},
+                        "7917/tcp": {},
+                        "7994/tcp": {},
+                        "7923/tcp": {},
+                        "7964/tcp": {},
+                        "7972/tcp": {},
+                        "7926/tcp": {},
+                        "7979/tcp": {},
+                        "7962/tcp": {},
+                        "7969/tcp": {},
+                        "7950/tcp": {},
+                        "7975/tcp": {},
+                        "7924/tcp": {},
+                        "7973/tcp": {},
+                        "7918/tcp": {},
+                        "7996/tcp": {},
+                        "7992/tcp": {},
+                        "7904/tcp": {},
+                        "7987/tcp": {},
+                        "7988/tcp": {},
+                        "7911/tcp": {},
+                        "7951/tcp": {},
+                        "7957/tcp": {},
+                        "7956/tcp": {},
+                        "7949/tcp": {}
+                    },
+                    "OnBuild": null,
+                    "AttachStderr": false,
+                    "Entrypoint": [
+                        "/entrypoint.sh"
+                    ],
+                    "AttachStdout": false,
+                    "OpenStdin": false
+                },
+                "docker_platform": "linux",
+                "docker_restartcount": 0,
+                "ansible_ssh_host": "",
+                "docker_logpath": "/var/lib/docker/containers/96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96/96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96-json.log",
+                "docker_hostnamepath": "/var/lib/docker/containers/96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96/hostname",
+                "docker_execids": null,
+                "docker_short_id": "96ca3f3581fa6",
+                "docker_processlabel": "",
+                "docker_driver": "overlay2",
+                "docker_resolvconfpath": "/var/lib/docker/containers/96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96/resolv.conf",
+                "docker_mountlabel": ""
+            }
+        }
+    },
+    "tools_redis_1": [
+        "tools_redis_1"
+    ],
+    "96ca3f3581fa639b94b9f911e5dc599b6a73c43575ac75036cdb44e3a1400e96": [
+        "tools_awx_1"
+    ],
+    "image_rastasheep/ubuntu-sshd": [
+        "entorno1",
+        "entorno2",
+        "entorno3",
+        "entorno4",
+        "entorno5"
+    ],
+    "docker_hosts": [
+        "unix://var/run/docker.sock"
+    ],
+    "e1956b7f38f0bf3e932c28c5754aef47a4cd02a59b6dcc90f8b699590cb912ab": [
+        "entorno3"
+    ],
+    "e1956b7f38f0b": [
+        "entorno3"
+    ],
+    "unix://var/run/docker.sock": [
+        "entorno1",
+        "entorno2",
+        "entorno3",
+        "entorno4",
+        "entorno5",
+        "tools_awx_1",
+        "tools_redis_1",
+        "tools_postgres_1"
+    ],
+    "61fd32df0d6af3e8276b852c08207f25dd4397cba6168fbb9549a609f8361ea8": [
+        "entorno2"
+    ],
+    "tools_awx_1": [
+        "tools_awx_1"
+    ]
+}

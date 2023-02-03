@@ -1,0 +1,150 @@
+# https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html#migrating-from-with-x-to-loop
+-   hosts: localhost
+    gather_facts: false
+    vars:
+        software:
+            - nombre: mariadb
+              puertos:
+                - 3306
+            - nombre: nginx
+              puertos:
+                - 80
+                - 443
+        configuracion:
+            fichero1:
+                origen: fichero1.conf
+                destino: /etc/app/fichero1.conf
+            fichero2:
+                origen: fichero2.conf
+                destino: /etc/app/fichero2.conf
+        software2:
+            mariadb:
+              puertos:
+                - 3306
+            nginx: 
+              puertos:
+                - 80
+                - 443
+    tasks:
+        -   name:   Mostrar los nombres de los paquetes que quiero instalar
+            debug:
+                msg: |
+                        El paquete a instalar es:
+                        {{ item.nombre }}
+                        
+                        Ya que item es un diccionario, que contiene nombre y puertos como claves
+                        {{ item }}
+                        
+            loop:   "{{ software }}"
+        
+        -   name:   Ejemplo de conversión de diccionario a lista
+            debug:
+                var: configuracion | dict2items
+
+#            configuracion:
+#                -   key: fichero1
+#                    value: 
+#                        origen: fichero1.conf
+#                        destino: /etc/app/fichero1.conf
+#                -   key: fichero2
+#                    value:
+#                        origen: fichero2.conf
+#                        destino: /etc/app/fichero2.conf
+
+
+
+        -   name:   Mostrar los ficheros que quiero copiar, su origen y destino
+            debug:
+                msg: |
+                        Copiamos el fichero: {{ item.value.origen }}
+                        en la ruta: {{ item.value.destino }}
+                        
+            loop: "{{ configuracion | dict2items }}" # Esto no funciona, ya que no es una lista
+
+        -   name:   Ejemplo de bucle anidado aplicado sobre una lista
+            debug:
+                var: software | subelements('puertos')
+
+            #software:
+            #    -
+            #        - nombre: mariadb
+            #          puertos:
+            #            - 3306
+            #        - 3306
+            #    - 
+            #        - nombre: nginx
+            #          puertos:
+            #            - 80
+            #            - 443
+            #        - 80
+            #    - 
+            #        - nombre: nginx
+            #          puertos:
+            #            - 80
+            #            - 443
+            #        - 443
+
+        -   name:   Mostrar los puertos que hay que abrir en el firewall para cada programa
+            debug:
+                msg: |
+                        Programa: {{ item.0.nombre }} Puerto: {{ item.1 }}
+            loop:  "{{ software | subelements('puertos') }}"
+            
+            # Bucles anidados: NO ES POSIBLE EN ANSIBLE
+            # for programa in software:
+            #     for puerto in programa.puertos:
+            #         echo puerto        
+        
+        -   name: Mostrar los puertos de cada sofware 2
+            debug: 
+                var: software2 | dict2items | subelements("value.puertos")
+                
+        -   name: Mostrar los puertos de cada sofware 2
+            debug: 
+                msg: | 
+                        Programa: {{ item.0.key }} Puerto: {{ item.1 }}
+            loop: '{{ software2 | dict2items | subelements("value.puertos") }}'
+
+            # software2:
+            #  -   
+            #     - key: mariadb    \
+            #       value:          |
+            #         puertos:       >   {{ item }}
+            #           - 3306      |
+            #     - 3306            /
+   
+        -   name: Mostrar los puertos de cada sofware 2
+            shell: 
+                cmd: >
+                        [ {{ item.1 }} -eq 80 ] && exit 0 || exit 1
+            loop: '{{ software2 | dict2items | subelements("value.puertos") }}'
+            # Estoy simulando que con esos datos lanzo algo..
+            # Que en algunos casos va a ir bien.. y en otros no.
+            ignore_errors: true
+            register: salida
+                # En este caso, el register no contiene un diccionario con los elementos 
+                    # que devuelve el módulo.
+                # Ya que el módulo no se ha llamado solo una vez... sino:
+                #. MONTONONES !!!!
+            # La variable salida en este caso es UN DICCIONARIO:
+            # Que contiene: 
+                # changed: Si alguno provoco cambio
+                # failed:  Si alguno provoco fallo
+                # resultas: Lista:
+                #               salidas del modulo
+                #                       changed: Si este item cambio
+                #                       failed:  Si este item fallo
+                #                       rc:      La salida de este item
+                #               item original
+            
+        -   name: Mirar la salida de LOS comandos anteriores
+            debug:
+                var: salida
+
+        -   name: Mostrar los puertos que han fallado
+            debug:
+                msg: | 
+                        HA FALLADO EL PUERTO: {{ item.item.1 }}
+            when: item.failed
+            loop: "{{ salida.results }}"
+            
