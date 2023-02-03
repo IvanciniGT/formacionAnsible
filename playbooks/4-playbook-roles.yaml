@@ -7,7 +7,8 @@
         -   name: Mostrar un mensaje por pantalla
             debug:
                 msg: Soy el mensaje de la primera tarea!
-        
+                
+                 # export ANSIBLE_ROLES_PATH=/home/ubuntu/environment/curso/roles
         -   name: Asegurar que la maquina está dada de alta en known_hosts
             include_role:
                 name: knownhosts

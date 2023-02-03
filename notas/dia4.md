@@ -231,6 +231,54 @@ Eso lo consigo con pool: 0
 Y esto nos obliga posteriormente a meter una tarea de sincronización
 
 
+## En la realidad
 
-|1|myI15MH0DTlEV8aHhbz3vA1vdw4=|yD/5msmWMbQGzB4gIqbnld2f+H0= ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9NiRfkrMv08eGphrb0Nu1dXrf+8FRTPCjI+FXO5SJM1xj2bDknSMy4ncavZ/0qMWNB5YkGxPIn1DkOm9gYuOy8PGlcL1rLrG+jE1YjGqDy3HrIP3CKkyA5YrZDQut1EvETmlVOK/VW9d6lAC+6qtjk+Npm4IsmaUAlJoG2E9dU2FpCio2eAknGe4ZvCQZrTk49qyrpj5XAOa/TWBgJE/9kktl7amQoqRSoB4RGnnpoKGlpJswqIFmsZhHRgX+nPqIxcGbJ22z8EDjDUDt9z8lY4/UTIPWkjSkyRpwgMJar7baFzuV4IA3yH8Q+sLuEbMP5NWHdIAk8RyMwG7ifUsT\n
-|1|Mth9jgMZYvkYT3g2jj/Dql4gVgQ=|UJfkR/iJ8JnlsxOhZfrXCoB6Ec0= ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9NiRfkrMv08eGphrb0Nu1dXrf+8FRTPCjI+FXO5SJM1xj2bDknSMy4ncavZ/0qMWNB5YkGxPIn1DkOm9gYuOy8PGlcL1rLrG+jE1YjGqDy3HrIP3CKkyA5YrZDQut1EvETmlVOK/VW9d6lAC+6qtjk+Npm4IsmaUAlJoG2E9dU2FpCio2eAknGe4ZvCQZrTk49qyrpj5XAOa/TWBgJE/9kktl7amQoqRSoB4RGnnpoKGlpJswqIFmsZhHRgX+nPqIxcGbJ22z8EDjDUDt9z8lY4/UTIPWkjSkyRpwgMJar7baFzuV4IA3yH8Q+sLuEbMP5NWHdIAk8RyMwG7ifUsT\n"
+Cuando agarro un sevridor: 1
+- Le bloque para que so se puedan actualizar NADA sin mi consentimiento
+- Le meto una clave ssh para los de admin/operaciones
+- Le meto una clave ssh para los de monitorizacion /MAS CAPADITA !
+- Monto en sistema de monitorización (instalar cosas aqui)
+- Alta del servidor en el registry de la empresa
+- Configurar unas politicas de seguridad 
+- ...
+- Dentro de 2 días ya el instalo el nginx
+- Y luego sigo
+- Monto un sistema de recolección de logs !
+
+Un playbook con todo eso tendría sentido? NO... por qué?
+1. No hay quién le meta mano !
+2. Muchas de esas cosas las van hacer personas distintas... y todas tocan en el mismo archivo? 
+    PUES VAYA CONTROL !
+3. Puedo reutilizar componentes de ahí para otro tipo de servidores? NO
+    Debería poder ... pero si está TODO, incluyendo la instalación del nginx en un playbook... pues tu me contarás.
+
+Me ayudarían aqui los roles?
+Esto me da un primer grado de reutilización del código
+
+Pero sigo teniendo un playbook aberrante!
+
+Me permitiría solicitar tareas concretas? YA PUEDO TENER UN MAGNIFICAMENTE DISEÑADO E IMPLEMENTADO SISTEMA DE TAGS
+si no... voy jodido... y aver quien se los aprende!
+
+Esto en la práctica lo montamos como playbooks independientes!
+
+Ahora bien... esos 10 playbooks hay que orquestarlos. < TOWER
+
+      CMDB
+        ^
+        |
+    Jenkins ON TOP  -(1)-> Tower -> Ansible playbooks       PROVISIONER 
+        |  ^        <(2)--
+        V  | (1)
+        Terraform
+        
+        
+        Infraestructura => TERRAFORM                        PROVIDER
+        
+        kvm
+        
+        
+        
+cd awxkit/awxkit/cli/docs
+TOWER_HOST=https://awx.example.org TOWER_USERNAME=example TOWER_PASSWORD=secret make clean html
+cd build/html/ && python -m http.server
