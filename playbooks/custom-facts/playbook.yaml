@@ -1,0 +1,76 @@
+-   hosts:          localhost
+    gather_facts:   true
+    
+    tasks:
+        -   name:   Vamos a asignar unos custom facts sin persistencia en el remoto
+            block: 
+                -   name:  Crear un fact propio sin ningun tipo de persistencia
+                    set_fact:
+                        variable1: 
+                            clave1:     17
+                            clave2:     true
+                            clave3:     "hola"
+                -   name:  Crear un fact propio sin ningun tipo de persistencia
+                    set_fact:
+                        variable2: 
+                            clave1:     18
+                            clave2:     false
+                            clave3:     "chao"
+                        cacheable:      true # Requiere activa la cache en nodo de control:
+                                             # export ANSIBLE_CACHE_PLUGIN=jsonfile
+
+            tags:
+                - asignar
+
+        -   name:   Vamos a crear unos custom facts con persistencia en el remoto
+            block: 
+                -   name:   Crear el directorio de los custom facts
+                    file:
+                            path:   /etc/ansible/facts.d
+                            state:  directory
+                    become: true                                                # Ejecutar esto con sudo
+
+                -   name:   Copiar el archivo del custom fact
+                    copy:
+                            src:    custom_fact_1.fact
+                            dest:   /etc/ansible/facts.d/nuevo_fact.fact
+                            mode:   0644
+                    become: true                                                # Ejecutar esto con sudo
+                -   name:   Generar un fichero estático desde plantilla
+                    template:
+                        src:    template.fact.jinja2
+                        dest:   /etc/ansible/facts.d/fact_plantilla.fact
+                        mode:   '0444'
+                        backup: true            
+                    become: true                                                # Ejecutar esto con sudo
+                    vars:
+                        mivariable: Vamos a tomar un rico café
+            tags:
+                - crear
+
+        -   name:   Vamos a mostrar el valor de los distintos facts que tenemos 
+            block:
+                #-   name: Mostrar los ansible_facts
+                #    debug:
+                #        var: ansible_facts
+                -   name: Mostrar facts dinamicos
+                    debug:
+                        var: variable1
+                -   name: Mostrar datos facts dinamicos
+                    debug:
+                        var: variable1.clave2
+                -   name: Mostrar facts dinamicos
+                    debug:
+                        var: variable2
+
+                -   name: Mostrar custom_facts
+                    debug:
+                        var: ansible_local
+                        
+                -   name: Mostrar custom_facts
+                    debug:
+                        var: ansible_facts.ansible_local
+            tags:
+                - mostrar
+    
+    
